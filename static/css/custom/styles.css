@@ -1,8 +1,48 @@
-
 /* 
 General
 */
 
+
+
+
+/* 
+Main Game content
+*/
+
 main {
-	min-height: 100vh;
+    min-height: 100vh;
+}
+
+#game-container {
+	position: relative;
+    max-height: 800px;
+    max-width: 800px;
+    background: #000000;
+    border: 1px solid #000000;
+}
+
+#game-col-1 {
+	border-radius: 100% 0 0 0;
+    background: #51d363;
+}
+
+#game-col-2 {
+	border-radius: 0 100% 0 0;
+    background: #f22713;
+}
+
+#game-col-3 {
+	border-radius: 0 0 0 100%;
+    background: #f5ed29;
+}
+
+#game-col-4 {
+	border-radius: 0 0 100% 0;
+    background: #0197e3;
+}
+
+#game-centre {
+	position: absolute;
+	z-index: 1;
+	background: #343a40;	
 }
