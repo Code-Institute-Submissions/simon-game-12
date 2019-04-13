@@ -1,24 +1,24 @@
-# Simon Game
+# **Simon Game**
 
 ## **Table of Contents**
 
-- [Simon Game](#simon-game)
+- [**Simon Game**](#simon-game)
 	- [**Table of Contents**](#table-of-contents)
 	- [**CI Brief**](#ci-brief)
-	- [UX](#ux)
+	- [**UX**](#ux)
 		- [General Design](#general-design)
 		- [Requirements](#requirements)
-	- [Features](#features)
+	- [**Features**](#features)
 		- [Existing Features](#existing-features)
 		- [Features left to implement](#features-left-to-implement)
-	- [Technologies Used](#technologies-used)
-	- [Testing](#testing)
+	- [**Technologies Used**](#technologies-used)
+	- [**Testing**](#testing)
 		- [Tools used for testing](#tools-used-for-testing)
 	- [**Changelog and Fixes**](#changelog-and-fixes)
 		- [0.1](#01)
-	- [Deployment](#deployment)
+	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
-	- [Credits](#credits)
+	- [**Credits**](#credits)
 
 <hr />
 
@@ -57,7 +57,7 @@ I decided to follow the given example from CI for this project and create a simp
 
 <hr />
 
-## UX
+## **UX**
 
 ### General Design
 
@@ -82,7 +82,7 @@ HTML / CSS | 3
 
 <hr />
 
-## Features
+## **Features**
 
 Something
 
@@ -98,7 +98,7 @@ Something
 
 <hr />
 
-## Technologies Used
+## **Technologies Used**
 
 - [Bootstrap v4.0.0](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
   - The project uses **Bootstrap** to speed up the development.
@@ -111,7 +111,7 @@ Something
 
 <hr />
 
-## Testing
+## **Testing**
 
 The project has been tested on commonly used devices and browsers such as:
 
@@ -155,7 +155,7 @@ The project has been tested on commonly used devices and browsers such as:
 
 <hr />
 
-## Deployment
+## **Deployment**
 
 The project has been deployed to GitHub Pages  - [Simon Game](https://miroslavsvec.github.io/simon-game/)
 
@@ -171,7 +171,7 @@ The project has been deployed to GitHub Pages  - [Simon Game](https://miroslavsv
 
 <hr />
   
-## Credits
+## **Credits**
 
 **Special thanks to:**
 
@@ -179,4 +179,4 @@ The project has been deployed to GitHub Pages  - [Simon Game](https://miroslavsv
 
   All of you gave me constructive feedback which made the project better 😊
 
-[**To top**](#Table-of-Contents)
+[**To top**](#Table-of-Contents)A
