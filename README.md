@@ -15,6 +15,7 @@
 	- [**Testing**](#testing)
 		- [Tools used for testing](#tools-used-for-testing)
 	- [**Changelog and Fixes**](#changelog-and-fixes)
+		- [0.0](#00)
 		- [0.1](#01)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
@@ -92,7 +93,13 @@ Something
 
 ### Features left to implement
 
-- Something
+- add script to resize the game when user change to landscape
+- save / load (localStorage)
+- difficulties
+  - normal (10)
+  - medium (15)
+  - hard (20)
+- statistics
 
 [**To top**](#Table-of-Contents)
 
@@ -105,7 +112,7 @@ Something
 - [Font Awesome v5.3.1](https://fontawesome.com/)
   - The project uses **Font Awesome** for icons.
 - [JQuery v3.2.1](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/)
-  - The project uses **JQuery** for better user experiences as well as contact form validation.
+  - The project uses **JQuery** for better user experiences as well as to speed up the development.
 
 [**To top**](#Table-of-Contents)
 
@@ -145,11 +152,23 @@ The project has been tested on commonly used devices and browsers such as:
   - [master branch](https://github.com/MiroslavSvec/simon-game/tree/master) Used in production.
   - *XXXXXXXXXXXXX other branches has been created for development purpose only. Where each branch represent different version of the application.*
 
-### 0.1
+### 0.0
 
 - **Changelog**
   - Added basic file structure
   - Added basic skeleton for the game
+
+### 0.1
+
+- **Changelog**
+  - separated JS to multiple files for better readability
+    - [simon.js](/static/js/custom/simon.js) *Game functionality*
+    - [main.js](/static/js/custom/main.js) *General functions / Document ready / Events Listeners*
+    - [saves.js](/static/js/custom/saves.js) *Functions to work with localStorage*
+  - [index.html](/index.html)
+    - added `#game-overlay` section for user menu
+- **Fixes**
+  - `simon_layout()` is not executed every time the user change the size of the screen to prevent unxpected layout *For example when user change to landscape on mobile devices*
 
 [**To top**](#Table-of-Contents)
 

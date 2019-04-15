@@ -13,14 +13,31 @@ main {
     min-height: 100vh;
 }
 
-#game-container {
-	position: relative;
+#game-container,
+#game-overlay {
     max-height: 800px;
-    max-width: 800px;
-    background: #000000;
+	max-width: 800px;	
     border: 1px solid #000000;
 }
 
+#game-container {	
+	position: relative;	
+    background: #000000;
+}
+
+#game-overlay {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7)
+}
+
+/* #game-overlay .row,
+#game-overlay div {
+	width: 100%;
+}
+ */
 #game-col-1 {
 	border-radius: 100% 0 0 0;
     background: #51d363;
@@ -44,5 +61,5 @@ main {
 #game-centre {
 	position: absolute;
 	z-index: 1;
-	background: #343a40;	
+	background: #000000;	
 }
