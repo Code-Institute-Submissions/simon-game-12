@@ -17,6 +17,7 @@
 	- [**Changelog and Fixes**](#changelog-and-fixes)
 		- [0.0](#00)
 		- [0.1](#01)
+		- [0.2](#02)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -169,6 +170,12 @@ The project has been tested on commonly used devices and browsers such as:
     - added `#game-overlay` section for user menu
 - **Fixes**
   - `simon_layout()` is not executed every time the user change the size of the screen to prevent unxpected layout *For example when user change to landscape on mobile devices*
+
+### 0.2
+
+- **Changelog**
+  - [index.html](/index.html)
+    - restyled the game base on user feedbacks
 
 [**To top**](#Table-of-Contents)
 
