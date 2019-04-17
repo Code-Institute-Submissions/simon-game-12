@@ -20,3 +20,11 @@ function simon_layout() {
 		.css("left", `${(container_width / 2) - (game_centre / 2) + 15}` + 'px')
 		.css("top", `${(container_width / 2) - (game_centre / 2)}` + 'px');
 }
+
+/* 
+Create a game round
+*/
+
+function GameRound(game_save) {
+	
+}

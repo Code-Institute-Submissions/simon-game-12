@@ -18,6 +18,7 @@
 		- [0.0](#00)
 		- [0.1](#01)
 		- [0.2](#02)
+		- [0.3](#03)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -181,6 +182,12 @@ The project has been tested on commonly used devices and browsers such as:
   - [screens.css](/static/css/custom/screens.css)
 - **Fixes**
   - fixed issue with containers ID's as JS was not resizing them properly as there was not element with `#game-col-0` or `#game-col-4` no longer
+  
+### 0.3
+
+- **Changelog**
+  - [saves.js](/static/js/custom/saves.js)
+    - added basic structure for creating new game data or `.push()` new game data to existing `simon_save` in `localStorage`
 
 [**To top**](#Table-of-Contents)
 
