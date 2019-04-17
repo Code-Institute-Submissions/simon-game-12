@@ -7,10 +7,10 @@ function simon_layout() {
 	$("#game-container").height(container_width);
 	$("#game-overlay").height(container_width).width(container_width);
 	$("#game-overlay-content").height(container_width).width(container_width);
+	$("#game-col-0").height(container_width / 2);
 	$("#game-col-1").height(container_width / 2);
 	$("#game-col-2").height(container_width / 2);
 	$("#game-col-3").height(container_width / 2);
-	$("#game-col-4").height(container_width / 2);
 
 	$("#game-centre")
 		.height(container_width / 2)

@@ -96,6 +96,7 @@ Something
 
 - add script to resize the game when user change to landscape
 - save / load (localStorage)
+- sound on/off
 - difficulties
   - normal (10)
   - medium (15)
@@ -176,6 +177,10 @@ The project has been tested on commonly used devices and browsers such as:
 - **Changelog**
   - [index.html](/index.html)
     - restyled the game base on user feedbacks
+    - changed the ID's of `#game-col-` to match JS build in `.random()`
+  - [screens.css](/static/css/custom/screens.css)
+- **Fixes**
+  - fixed issue with containers ID's as JS was not resizing them properly as there was not element with `#game-col-0` or `#game-col-4` no longer
 
 [**To top**](#Table-of-Contents)
 
