@@ -6,11 +6,7 @@ function simon_layout() {
 	let container_width = $("#game-container").width();
 	$("#game-container").height(container_width);
 	$("#game-overlay").height(container_width).width(container_width);
-	$("#game-overlay-content").height(container_width).width(container_width);
-	$("#game-col-0").height(container_width / 2);
-	$("#game-col-1").height(container_width / 2);
-	$("#game-col-2").height(container_width / 2);
-	$("#game-col-3").height(container_width / 2);
+	$("#game-container .col-6").height(container_width / 2);
 
 	$("#game-centre")
 		.height(container_width / 2)
@@ -19,6 +15,26 @@ function simon_layout() {
 	$("#game-centre")
 		.css("left", `${(container_width / 2) - (game_centre / 2) + 15}` + 'px')
 		.css("top", `${(container_width / 2) - (game_centre / 2)}` + 'px');
+}
+
+/* 
+Gmae menu
+*/
+
+function new_game() {
+	console.log(1)
+}
+
+function load_game() {
+	console.log(2)
+}
+
+function statistics() {
+	console.log(3)
+}
+
+function settings() {
+	console.log(4)
 }
 
 /* 

@@ -10,4 +10,17 @@ $(document).ready(function () {
 	$(window).resize(function () {
 		simon_layout();
 	});
+	// Game menu
+	$("#new-game").click(function () { 
+		return new_game()	
+	});
+	$("#load-game").click(function () {
+		return load_game()
+	});
+	$("#statistics").click(function () {
+		return statistics()
+	});
+	$("#settings").click(function () {
+		return settings()
+	});
 });

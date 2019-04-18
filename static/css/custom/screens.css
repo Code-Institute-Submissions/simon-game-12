@@ -3,7 +3,25 @@ Main Game content
 */
 
 @media (max-width: 991px) {
-	 #game-centre h2 {
-		 font-size: 1.5rem;
-	 }
+	#game-centre h2 {
+		font-size: 1.5rem;
+	}
+	#game-container,
+	#game-centre,
+	#game-overlay {
+		max-height: 600px;
+		max-width: 600px;
+	}
+}
+
+@media (min-width: 768px) {
+	.fa-3x {
+		font-size: 5rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.fa-3x {
+		font-size: 7rem;
+	}
 }

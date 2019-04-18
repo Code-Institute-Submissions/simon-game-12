@@ -8,7 +8,7 @@ function create_data(params) {
 		"id" : id,
 		"name" : name,
 		"difficulty" : difficulty,
-		"sound_on" : sound,
+		"sound_on": sound_on,
 	}
 
 	if (load_data()) {
@@ -37,6 +37,7 @@ function SimonSave(params) {
 	this.difficulty = params.difficulty;
 	this.sound_on = params.sound_on;
 	this.sequence = [];
+	this.sequence_length = 0;
 	this.finished_game = false;
 	this.start_date = new Date();
 }

@@ -188,6 +188,8 @@ The project has been tested on commonly used devices and browsers such as:
 - **Changelog**
   - [saves.js](/static/js/custom/saves.js)
     - added basic structure for creating new game data or `.push()` new game data to existing `simon_save` in `localStorage`
+  - [index.html](/index.html)
+    - added skeleton for game menu to `#game-overlay`
 
 [**To top**](#Table-of-Contents)
 
