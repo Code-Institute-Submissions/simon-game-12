@@ -32,6 +32,26 @@ h2,
 	color: #ffffff;
 }
 
+form {
+	min-height: 100%;
+}
+
+.btn.focus, .btn:focus {
+	box-shadow: 0 0 0 0.2rem transparent;
+}
+
+#js-alerts {
+    position: absolute;
+    display: none;
+    min-height: 50px;
+    top: 5%;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.9);
+	color: #ffffff;
+	font-weight: 700;
+}
+
 /* 
 Nav
 */
@@ -48,6 +68,7 @@ a:hover {
 }
 
 .navbar-dark {
+	z-index: 55;
 	background-color: #13181d;
 	-webkit-box-shadow: 5px 5px 15px 5px #13181d;
 	box-shadow: 5px 5px 15px 5px #13181d;
@@ -58,12 +79,13 @@ Main Game content
 */
 
 main {
-	min-height: 90vh;
+	min-height: 100vh;
 }
 
 #game-container,
 #game-centre,
-#game-overlay {
+#game-overlay,
+#game-menu {
 	max-height: 800px;
 	max-width: 800px;
 	border-radius: 13%;
@@ -72,6 +94,7 @@ main {
 #game-container,
 #game-centre,
 #game-overlay,
+#game-menu,
 #game-col-0,
 #game-col-1,
 #game-col-2,
@@ -113,20 +136,44 @@ main {
 	background-color: #13181d;
 }
 
-#game-overlay {
+/* 
+Game Overlay and Game Menu 
+*/
+
+#game-overlay,
+#game-menu {
 	position: absolute;
 	z-index: 2;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.2);
 }
 
-#game-overlay .col-6:hover i {
-	transform: scale(1.1);
+#game-overlay {
+	display: none;
+	z-index: 4;
 }
 
-#game-overlay .col-6:hover {
+#game-overlay,
+#game-menu {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+#game-menu .col-6:hover i {
+	transform: scale(1.3);
+}
+
+#game-menu .col-6:hover {
 	cursor: pointer;
+}
+
+input[type=checkbox] {
+	top: 0.8rem;
+	width: 2rem;
+	height: 2rem;
+}
+
+.form-check label {
+	font-size: 1.5rem
 }
 
 .fa-gamepad {
@@ -135,7 +182,8 @@ main {
 		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
 }
 
-.fa-cloud-download-alt {
+.fa-cloud-download-alt,
+.fa-times {
 	text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
 		#d33131 0px 0px 20px, #d33131 0px 0px 30px, #d33131 0px 0px 40px,
 		#d33131 0px 0px 50px, #d33131 0px 0px 75px;
@@ -153,4 +201,22 @@ main {
 		#1d89f4 0px 0px 50px, #1d89f4 0px 0px 75px;
 }
 
+/* 
+New game form
+*/
 
+.btn-outline-success {
+	background: #13181d;
+}
+
+.btn-outline-success:hover {
+	color: #13181d;
+	font-weight: 800;
+	box-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+		#00db78 0px 0px 20px, #00db78 0px 0px 30px, #00db78 0px 0px 40px,
+		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
+}
+
+.fa-times:hover {
+	transform: scale(1.2);
+}

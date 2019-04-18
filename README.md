@@ -188,8 +188,13 @@ The project has been tested on commonly used devices and browsers such as:
 - **Changelog**
   - [saves.js](/static/js/custom/saves.js)
     - added basic structure for creating new game data or `.push()` new game data to existing `simon_save` in `localStorage`
+  - [templates.js](/static/js/custom/templates.js)
+    - added for holding HTML templates
+  - [main.js](/static/js/custom/main.js)
+    - added `js_alerts()` animation
   - [index.html](/index.html)
-    - added skeleton for game menu to `#game-overlay`
+    - added skeleton for game menu to `#game-menu`
+    - added new game form to `#game-overlay` (`new_game_template()`)
 
 [**To top**](#Table-of-Contents)
 
