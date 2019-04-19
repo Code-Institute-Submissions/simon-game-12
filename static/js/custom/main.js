@@ -51,6 +51,19 @@ $(document).ready(function () {
 	$("#settings").click(function () {
 		return settings()
 	});
+	// Game tiles
+	$("#game-col-0").click(function () {
+		return flash_play(0)
+	});
+	$("#game-col-1").click(function () {
+		return flash_play(1)
+	});
+	$("#game-col-2").click(function () {
+		return flash_play(2)
+	});
+	$("#game-col-3").click(function () {
+		return flash_play(3)
+	});
 });
 
 
@@ -69,4 +82,14 @@ function js_alerts(css_class, message) {
 	}, 5000);
 }
 
+/* 
+Close #game-overlay
+*/
+
+function hide_overlay(overlay) {
+	play_audio("incorrect")
+	$(overlay).fadeOut(500);
+	game_centre_h2();
+	return false
+}
 

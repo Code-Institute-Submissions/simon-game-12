@@ -102,7 +102,8 @@ Something
 - difficulties
   - normal (10)
   - medium (15)
-  - hard (20)
+  - hard (20)  
+- limited tries
 - statistics
 
 [**To top**](#Table-of-Contents)

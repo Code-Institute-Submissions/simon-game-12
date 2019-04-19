@@ -19,12 +19,11 @@ function simon_layout() {
 }
 
 /* 
-Gmae menu
+Game menu
 */
 
 function new_game() {
-	column_animation(0)
-	play_audio(0)
+	flash_play(0)
 	$("#game-centre h2").fadeOut(500);
 	$("#game-overlay").html(new_game_template()).fadeIn(500);
 	$("#game-overlay input[type=checkbox]").change(function () {
@@ -47,8 +46,7 @@ function new_game() {
 Game centre
 */
 
-function game_centre_h2(selector) {
-	$(selector).fadeOut(500);
+function game_centre_h2() {
 	$('#game-centre h2').html(`
 		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
 	`)
@@ -58,8 +56,7 @@ function game_centre_h2(selector) {
 
 
 function load_game() {
-	column_animation(1)
-	play_audio(1)
+	flash_play(1)
 	if (load_data()) {
 
 	} else {
@@ -68,8 +65,7 @@ function load_game() {
 }
 
 function statistics() {
-	column_animation(2)
-	play_audio(2)
+	flash_play(2)
 	if (load_data()) {
 		
 	} else {
@@ -78,8 +74,7 @@ function statistics() {
 }
 
 function settings() {
-	column_animation(3);
-	play_audio(3)
+	flash_play(3)
 }
 
 /* 
@@ -155,8 +150,7 @@ Create a game round
 function game_round(game_save) {	
 	let sequence = game_save.sequence
 	for (let i = 0; i < sequence.length; i++) {
-		column_animation(sequence[i]);
-		play_audio(sequence[i])	
+		flash_play(sequence[i]);
 		
 	}
 }
@@ -179,4 +173,13 @@ function play_audio(id) {
 	obj.volume = 1;
 	obj.autoPlay = false;
 	obj.play();
+}
+
+/* 
+Flash and pay sound
+*/
+
+function flash_play(id) {
+	column_animation(id);
+	play_audio(id);	
 }

@@ -42,7 +42,7 @@ function new_game_template() {
 	<form class="row justify-content-center">								
 		<div class="form-wrapper align-self-center">
 			<div class="row justify-content-end">
-				<button onclick="return game_centre_h2('#game-overlay')" class="btn bg-transparent">
+				<button onclick="return hide_overlay('#game-overlay')" class="btn bg-transparent">
 					<i class="fas fa-times fa-4x"></i>
 				</button>							
 			</div>
@@ -61,7 +61,7 @@ function new_game_template() {
 				<input type="checkbox" class="form-check-input" id="sounds" checked>
 				<label class="form-check-label pt-3 pl-4 text-light" for="sounds">Sounds on</label>
 			</div>
-			<div class="form-group pt-4">
+			<div class="form-group">
 				<button onclick="return create_game()" class="btn btn-outline-success btn-lg btn-block" type="submit">Play</button>
 			</div>
 		</div>

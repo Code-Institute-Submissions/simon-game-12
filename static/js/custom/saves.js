@@ -30,6 +30,8 @@ function SimonSave(params) {
 	this.sound_on = params.sound_on;
 	this.sequence = [random_ele()];
 	this.sequence_length = 1;
+	this.correct = 0;
+	this.wrong = 0;
 	this.finished_game = false;
 	this.start_date = new Date();
 }
