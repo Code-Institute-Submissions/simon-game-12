@@ -195,7 +195,7 @@ The project has been tested on commonly used devices and browsers such as:
   - [index.html](/index.html)
     - added skeleton for game menu to `#game-menu`
     - added new game form to `#game-overlay` (`new_game_template()`)
-
+A
 [**To top**](#Table-of-Contents)
 
 <hr />

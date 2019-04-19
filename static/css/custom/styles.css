@@ -41,14 +41,9 @@ form {
 }
 
 #js-alerts {
-    position: absolute;
-    display: none;
-    min-height: 50px;
-    top: 5%;
-    left: 0;
+	display: none;
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.9);
-	color: #ffffff;
 	font-weight: 700;
 }
 

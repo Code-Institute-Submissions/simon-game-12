@@ -23,16 +23,50 @@ Gmae menu
 */
 
 function new_game() {
-	$("#game-centre h2").fadeOut(1000);
-	$("#game-overlay").html(new_game_template()).fadeIn(1000);
+	$("#game-centre h2").fadeOut(500);
+	$("#game-overlay").html(new_game_template()).fadeIn(500);
 	$("#game-overlay input[type=checkbox]").change(function () {
 		let checked = $(".form-check-input:checkbox:checked");
 		if (checked.length == 0) {
-			js_alerts("danger", "The game can get much harder with sounds off!")
+			let display = $("#js-alerts").css("display")
+			if (display == "none") {
+				let message = "The game can get much harder with sounds off!"
+				if ($(".alert p").text() != message) {
+					js_alerts("danger", message)
+				}				
+			}
+			
 		}
 	});
+}
 
-	console.log(1)
+function create_game() {
+	$("#game-centre h2").fadeIn(1000);
+	let name = $("#game-overlay input[name=name]").val().split()
+	let difficulty = $("#difficulty").val()
+	let sound_on = $(".form-check-input:checkbox").val()
+	if (name[0].length <= 3) {
+		let message = "Profile name must be longer then 3 characters!"
+		if ($(".alert p").text() != message) {
+			js_alerts("danger", message)
+		}
+		return false
+	} else if (difficulty == "difficulty" ) {
+		let message = "Please choose difficulty of the game!"
+		if ($(".alert p").text() != message) {
+			js_alerts("danger", message)
+		}
+		return false
+	} else {
+		let params = {
+			"id" : 1,
+			"name" : name[0],
+			"difficulty": difficulty,
+			"sound_on": sound_on,
+		}
+		create_data(params)
+	}
+	return false
 }
 
 function create_game(form) {
@@ -45,11 +79,19 @@ function create_game(form) {
 }
 
 function load_game() {
-	console.log(2)
+	if (load_data()) {
+
+	} else {
+		gc_alerts("danger", "No profiles found!")
+	}
 }
 
 function statistics() {
-	console.log(3)
+	if (load_data()) {
+		
+	} else {
+		gc_alerts("danger", "Please try to finish a game first!")
+	}
 }
 
 function settings() {
