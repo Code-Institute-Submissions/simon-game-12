@@ -20,7 +20,7 @@
 		- [0.2](#02)
 		- [0.3](#03)
 		- [0.4](#04)
-		- [0.4](#04-1)
+		- [0.5](#05)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -206,11 +206,16 @@ The project has been tested on commonly used devices and browsers such as:
   - [simon.js](/static/js/custom/simon.js)
     - added basic structure for playing sequence
 
-### 0.4
+### 0.5
 
 - **Changelog**
   - [templates.js](/static/js/custom/teplates.js)
     - added `no_profiles()` template
+  - [testing.js](/static/js/custom/testing.js)
+    - to hold testing function and keep them separately from main code
+- **Fixes**
+  - [simon.js](/static/js/custom/simon.js)
+    - fixed issue in `game_round()` when sounds and animations will play all ate once (added +1000 `delay`  for every element in sequence)
 
 [**To top**](#Table-of-Contents)
 

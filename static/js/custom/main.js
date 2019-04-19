@@ -1,32 +1,3 @@
-
-
-
-/* 
-
-
-Testing
-
-
-*/
-
-// Game centre
-
-function gc_alerts(css_class, message) {
-	$.when($("#game-centre h2").fadeOut(500)).then(function () {
-		$("#game-centre h2").html(`
-			<p class="text-${css_class} font-weight-bold px-2 lead">${message}</p>
-		`);
-		$("#game-centre h2").fadeIn(500);
-		setTimeout(() => {
-			game_centre_h2();
-		}, 5000);
-	});
-
-}
-
-
-
-
 /*
 Document ready / Events listeners
 */

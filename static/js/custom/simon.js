@@ -82,14 +82,6 @@ function settings() {
 }
 
 /* 
-Create random sequents of element
-*/
-
-function random_ele() {
-	return Math.floor(Math.random() * 4)
-}
-
-/* 
 Create new game
 */
 
@@ -153,10 +145,23 @@ Create a game round
 
 function game_round(game_save) {	
 	let sequence = game_save.sequence
+	var delay = 1000;
 	for (let i = 0; i < sequence.length; i++) {
-		flash_play(sequence[i]);
+		setTimeout(() => {
+			flash_play(sequence[i]);
+		}, delay);	
+		
+		delay += 1000
 		
 	}
+}
+
+/* 
+Create random sequents of element
+*/
+
+function random_ele() {
+	return Math.floor(Math.random() * 4)
 }
 
 /* 
