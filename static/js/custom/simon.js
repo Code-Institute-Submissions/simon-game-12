@@ -175,7 +175,7 @@ Play audio file
 
 function play_audio(id) {
 	let obj = document.createElement("audio");
-	obj.src = `/static/sounds/${id}.mp3`;
+	obj.src = `static/sounds/${id}.mp3`;
 	obj.volume = 1;
 	obj.autoPlay = false;
 	obj.play();
