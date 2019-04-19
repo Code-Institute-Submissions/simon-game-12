@@ -42,7 +42,7 @@ function new_game_template() {
 	<form class="row justify-content-center">								
 		<div class="form-wrapper align-self-center">
 			<div class="row justify-content-end">
-				<button onclick="return fade_out('#game-overlay')" class="btn bg-transparent">
+				<button onclick="return game_centre_h2('#game-overlay')" class="btn bg-transparent">
 					<i class="fas fa-times fa-4x"></i>
 				</button>							
 			</div>
@@ -51,7 +51,7 @@ function new_game_template() {
 			</div>
 			<div class="form-group">
 				<select class="form-control" id="difficulty">
-					<option selected="true" disable>Difficulty</option>
+					<option selected="true" value="" disable>Difficulty</option>
 					<option value="normal">Normal (10)</option>
 					<option value="medium">Medium (15)</option>
 					<option value="hard">Hard (20)</option>
@@ -62,7 +62,7 @@ function new_game_template() {
 				<label class="form-check-label pt-3 pl-4 text-light" for="sounds">Sounds on</label>
 			</div>
 			<div class="form-group pt-4">
-				<button onclick="return create_game(this)" class="btn btn-outline-success btn-lg btn-block" type="submit">Play</button>
+				<button onclick="return create_game()" class="btn btn-outline-success btn-lg btn-block" type="submit">Play</button>
 			</div>
 		</div>
 	</form>

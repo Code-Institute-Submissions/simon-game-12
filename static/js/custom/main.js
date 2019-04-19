@@ -1,4 +1,32 @@
 
+
+
+/* 
+
+
+Testing
+
+
+*/
+
+// Game centre
+
+function gc_alerts(css_class, message) {
+	$.when($("#game-centre h2").fadeOut(500)).then(function () {
+		$("#game-centre h2").html(`
+			<p class="text-${css_class} font-weight-bold px-2 lead">${message}</p>
+		`);
+		$("#game-centre h2").fadeIn(500);
+		setTimeout(() => {
+			game_centre_h2();
+		}, 5000);
+	});
+
+}
+
+
+
+
 /*
 Document ready / Events listeners
 */
@@ -29,9 +57,12 @@ $(document).ready(function () {
 Fade out element
 */
 
-function fade_out(selector) {
-	$(selector).fadeOut(1000);
-	$('#game-centre h2').fadeIn(1000);
+function game_centre_h2(selector) {
+	$(selector).fadeOut(500);
+	$('#game-centre h2').html(`
+		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
+	`)	
+	.fadeIn(500);
 	return false
 }
 
@@ -39,13 +70,14 @@ function fade_out(selector) {
 Alerts
 */
 
+// Js alerts
 function js_alerts(css_class, message) {
 	$(".alert").html(`
-		<p class="text-${css_class} lead">${message}</p>
+		<p class="text-${css_class} lead font-weight-bold">${message}</p>
 	`);
-	$(".alert").fadeIn(500);
-	$("#js-alerts").fadeIn(1000);
+	$("#js-alerts").slideDown(1000);
 	setTimeout(() => {
-		$("#js-alerts").fadeOut(2000);
+		$("#js-alerts").slideUp(2000);
 	}, 5000);
 }
+

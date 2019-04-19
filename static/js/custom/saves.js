@@ -3,23 +3,15 @@ Create game data
 */
 
 function create_data(params) {
-
-	let arguments = {
-		"id" : id,
-		"name" : name,
-		"difficulty" : difficulty,
-		"sound_on": sound_on,
-	}
-
 	if (load_data()) {
 		let simon_saves = load_data();
-		arguments.id = simon_saves.length + 1
-		const simon_save = new SimonSave(arguments);
+		params.id = simon_saves.length + 1
+		const simon_save = new SimonSave(params);
 		simon_saves.push(simon_save);
 		save_data(simon_saves);
 		return simon_save;
 	} else {
-		const simon_save = new SimonSave(arguments);
+		const simon_save = new SimonSave(params);
 		let simon_saves = [simon_save];
 		save_data(simon_saves);
 		return simon_save;
@@ -36,8 +28,8 @@ function SimonSave(params) {
 	this.name = params.name;
 	this.difficulty = params.difficulty;
 	this.sound_on = params.sound_on;
-	this.sequence = [];
-	this.sequence_length = 0;
+	this.sequence = [random_ele()];
+	this.sequence_length = 1;
 	this.finished_game = false;
 	this.start_date = new Date();
 }
@@ -58,4 +50,12 @@ function load_data() {
 	const get_saves = localStorage.getItem("simon_saves");
 	const saves = JSON.parse(get_saves);
 	return saves;
+}
+
+/* 
+Clear localStorage
+*/
+
+function clear_ls() {
+	localStorage.clear()
 }
