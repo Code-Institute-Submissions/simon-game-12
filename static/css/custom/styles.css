@@ -53,6 +53,10 @@ hr {
 		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
 }
 
+.dark-overlay {
+	background: rgba(0, 0, 0, 0.4);
+}
+
 /* 
 Nav
 */
@@ -152,11 +156,6 @@ Game Overlay and Game Menu
 #game-overlay {
 	display: none;
 	z-index: 4;
-}
-
-#game-overlay,
-#game-menu {
-	background: rgba(0, 0, 0, 0.4);
 }
 
 #game-menu .col-6:hover i,

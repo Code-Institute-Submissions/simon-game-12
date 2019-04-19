@@ -144,6 +144,7 @@ Create a game round
 */
 
 function game_round(game_save) {	
+	$("#game-overlay").empty().removeClass("dark-overlay").fadeIn()
 	let sequence = game_save.sequence
 	var delay = 1000;
 	for (let i = 0; i < sequence.length; i++) {
@@ -154,6 +155,9 @@ function game_round(game_save) {
 		delay += 1000
 		
 	}
+	setTimeout(() => {
+		$("#game-overlay").fadeOut()
+	}, delay);	
 }
 
 /* 
