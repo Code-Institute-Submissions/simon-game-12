@@ -79,6 +79,7 @@ function statistics() {
 
 function settings() {
 	flash_play(3)
+	$("#game-centre h2").fadeOut(500);
 	$("#game-overlay").html(no_feature()).fadeIn(500);
 }
 
