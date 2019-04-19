@@ -60,7 +60,7 @@ function load_game() {
 	flash_play(1)
 	$("#game-centre h2").fadeOut(500);
 	if (load_data()) {
-		$("#game-overlay").html(new_game_template()).fadeIn(500);
+		$("#game-overlay").html(no_feature()).fadeIn(500);
 		
 	} else {
 		return no_profiles()
@@ -71,7 +71,7 @@ function statistics() {
 	flash_play(2)
 	$("#game-centre h2").fadeOut(500);
 	if (load_data()) {		
-		$("#game-overlay").html(new_game_template()).fadeIn(500);
+		$("#game-overlay").html(no_feature()).fadeIn(500);
 	} else {
 		return no_profiles()	
 	}
@@ -79,6 +79,8 @@ function statistics() {
 
 function settings() {
 	flash_play(3)
+	$("#game-centre h2").fadeOut(500);
+	$("#game-overlay").html(no_feature()).fadeIn(500);
 }
 
 /* 

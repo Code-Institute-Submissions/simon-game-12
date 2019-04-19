@@ -14,6 +14,7 @@ function random_sequence() {
 			game_save.sequence.push(random_ele())
 			z += 1
 		}
+		clear_ls()
 		return game_round(game_save)
 	});
 }
@@ -32,3 +33,27 @@ function random_sequence() {
 	});
 
 } */
+
+
+/* 
+Feature not implemented yet template
+*/
+
+function no_feature() {
+	$("#game-overlay").html(`
+		<div class="wrapper row justify-content-center">
+			<div class="align-self-center">
+				<div class="row justify-content-end">
+					<button onclick="return hide_overlay('#game-overlay')" class="btn bg-transparent">
+						<i class="fas fa-times fa-4x"></i>
+					</button>							
+				</div>
+				<hr>
+				<h3 class="text-center">This feature is not implemented yet!</h3>	
+				<hr>
+			</div>
+		</div>
+	`)
+	simon_layout()
+	$("#game-overlay").fadeIn(500)
+}
