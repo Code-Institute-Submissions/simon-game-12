@@ -23,6 +23,7 @@ Gmae menu
 */
 
 function new_game() {
+	column_animation(0)
 	$("#game-centre h2").fadeOut(500);
 	$("#game-overlay").html(new_game_template()).fadeIn(500);
 	$("#game-overlay input[type=checkbox]").change(function () {
@@ -40,53 +41,41 @@ function new_game() {
 	});
 }
 
-function create_game() {
-	$("#game-centre h2").fadeIn(1000);
-	let name = $("#game-overlay input[name=name]").val().split()
-	let difficulty = $("#difficulty").val()
-	let sound_on = $(".form-check-input:checkbox").val()
-	if (name[0].length <= 3) {
-		let message = "Profile name must be longer then 3 characters!"
-		if ($(".alert p").text() != message) {
-			js_alerts("danger", message)
-		}
-		return false
-	} else if (difficulty == "difficulty" ) {
-		let message = "Please choose difficulty of the game!"
-		if ($(".alert p").text() != message) {
-			js_alerts("danger", message)
-		}
-		return false
-	} else {
-		let params = {
-			"id" : 1,
-			"name" : name[0],
-			"difficulty": difficulty,
-			"sound_on": sound_on,
-		}
-		create_data(params)
-	}
+
+/* 
+Game centre
+*/
+
+function game_centre_h2(selector) {
+	$(selector).fadeOut(500);
+	$('#game-centre h2').html(`
+		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
+	`)
+		.fadeIn(500);
 	return false
 }
 
+
 function load_game() {
+	column_animation(1)
 	if (load_data()) {
 
 	} else {
-		gc_alerts("danger", "No profiles found!")
+		js_alerts("danger", "No profiles found!")
 	}
 }
 
 function statistics() {
+	column_animation(2)
 	if (load_data()) {
 		
 	} else {
-		gc_alerts("danger", "Please try to finish a game first!")
+		js_alerts("danger", "Please try to finish a game first!")
 	}
 }
 
 function settings() {
-	console.log(4)
+	column_animation(3)
 }
 
 /* 
@@ -98,9 +87,92 @@ function random_ele() {
 }
 
 /* 
+Create new game
+*/
+
+function create_game() {
+	$("#game-centre h2").fadeIn(1000);
+	let name = $("#game-overlay input[name=name]").val().split()
+	let difficulty = $("#difficulty").val()
+	let sound_on = $(".form-check-input:checkbox").val()
+	//Check if form is valid
+	if (name[0].length <= 3) {
+		let message = "Profile name must be longer then 3 characters!"
+		if ($(".alert p").text() != message) {
+			js_alerts("danger", message)
+		}
+		return false
+	} else if (difficulty == "difficulty") {
+		let message = "Please choose difficulty of the game!"
+		if ($(".alert p").text() != message) {
+			js_alerts("danger", message)
+		}
+		return false
+	} else {
+		//Create new profile
+		let params = {
+			"id": 1,
+			"name": name[0],
+			"difficulty": difficulty,
+			"sound_on": sound_on,
+		}
+		const profile = create_data(params)
+		if (profile) {
+			//Start game
+			start_game(profile)
+		} else {
+			js_alerts("danger", "Unable to save profile!")
+			load_data()
+			return false
+		}
+	}
+	return false
+}
+
+/* 
+Start new game
+*/
+
+function start_game(profile) {	
+	$.when(hide_menu()).then(game_round(profile));		
+	return false
+}
+
+function hide_menu() {
+	$("#game-menu").fadeOut(500);
+	$("#game-overlay").fadeOut(500);
+	game_centre_h2()
+}
+
+/* 
 Create a game round
 */
 
-function GameRound(game_save) {
-	
+function game_round(game_save) {	
+	let sequence = game_save.sequence
+	for (let i = 0; i < sequence.length; i++) {
+		column_animation(sequence[i]);
+		play_audio(sequence[i])	
+		
+	}
+}
+
+/* 
+Column animation
+*/
+
+function column_animation(id) {
+	$(`#game-col-${id}`).fadeOut(500).fadeIn(500);		
+}
+
+/* 
+Play audio file
+*/
+
+function play_audio(id) {
+	let mp3 = document.createElement("audio");
+	mp3.src = `/static/sounds/${id}.mp3`;
+	mp3.volume = 1;
+	mp3.autoPlay = false;
+	mp3.play();
 }

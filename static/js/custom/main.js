@@ -53,24 +53,12 @@ $(document).ready(function () {
 	});
 });
 
-/* 
-Fade out element
-*/
-
-function game_centre_h2(selector) {
-	$(selector).fadeOut(500);
-	$('#game-centre h2').html(`
-		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
-	`)	
-	.fadeIn(500);
-	return false
-}
 
 /* 
 Alerts
 */
 
-// Js alerts
+// JS alerts
 function js_alerts(css_class, message) {
 	$(".alert").html(`
 		<p class="text-${css_class} lead font-weight-bold">${message}</p>
@@ -80,4 +68,5 @@ function js_alerts(css_class, message) {
 		$("#js-alerts").slideUp(2000);
 	}, 5000);
 }
+
 

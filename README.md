@@ -19,6 +19,7 @@
 		- [0.1](#01)
 		- [0.2](#02)
 		- [0.3](#03)
+		- [0.4](#04)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -195,6 +196,12 @@ The project has been tested on commonly used devices and browsers such as:
   - [index.html](/index.html)
     - added skeleton for game menu to `#game-menu`
     - added new game form to `#game-overlay` (`new_game_template()`)
+
+### 0.4
+
+- **Changelog**
+  - [simon.js](/static/js/custom/simon.js)
+    - added basic structure for playing sequence
 
 [**To top**](#Table-of-Contents)
 

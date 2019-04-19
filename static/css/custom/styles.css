@@ -157,7 +157,8 @@ Game Overlay and Game Menu
 	transform: scale(1.3);
 }
 
-#game-menu .col-6:hover {
+#game-menu .col-6:hover,
+#game-container .col-6:hover {
 	cursor: pointer;
 }
 
