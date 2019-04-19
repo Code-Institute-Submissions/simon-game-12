@@ -20,6 +20,7 @@
 		- [0.2](#02)
 		- [0.3](#03)
 		- [0.4](#04)
+		- [0.4](#04-1)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -105,6 +106,7 @@ Something
   - hard (20)  
 - limited tries
 - statistics
+- different themes
 
 [**To top**](#Table-of-Contents)
 
@@ -203,6 +205,12 @@ The project has been tested on commonly used devices and browsers such as:
 - **Changelog**
   - [simon.js](/static/js/custom/simon.js)
     - added basic structure for playing sequence
+
+### 0.4
+
+- **Changelog**
+  - [templates.js](/static/js/custom/teplates.js)
+    - added `no_profiles()` template
 
 [**To top**](#Table-of-Contents)
 

@@ -8,6 +8,7 @@ function simon_layout() {
 	$("#game-menu").height(container_width).width(container_width);
 	$("#game-overlay").height(container_width).width(container_width);
 	$("#game-container .col-6").height(container_width / 2);
+	$(".wrapper").height(container_width);	
 
 	$("#game-centre")
 		.height(container_width / 2)
@@ -57,19 +58,22 @@ function game_centre_h2() {
 
 function load_game() {
 	flash_play(1)
+	$("#game-centre h2").fadeOut(500);
 	if (load_data()) {
-
+		$("#game-overlay").html(new_game_template()).fadeIn(500);
+		
 	} else {
-		js_alerts("danger", "No profiles found!")
+		return no_profiles()
 	}
 }
 
 function statistics() {
 	flash_play(2)
-	if (load_data()) {
-		
+	$("#game-centre h2").fadeOut(500);
+	if (load_data()) {		
+		$("#game-overlay").html(new_game_template()).fadeIn(500);
 	} else {
-		js_alerts("danger", "Please try to finish a game first!")
+		return no_profiles()	
 	}
 }
 

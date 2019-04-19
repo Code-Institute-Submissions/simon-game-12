@@ -42,7 +42,7 @@ $(document).ready(function () {
 	$("#new-game").click(function () { 
 		return new_game()	
 	});
-	$("#load-game").click(function () {
+	$("#wrapper").click(function () {
 		return load_game()
 	});
 	$("#statistics").click(function () {

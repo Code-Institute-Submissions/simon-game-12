@@ -10,7 +10,7 @@ function game_menu() {
 					<i class="fas fa-gamepad fa-3x"></i>
 				</div>
 			</div>
-			<div id="load-game" class="col-6 d-flex justify-content-center">
+			<div id="wrapper" class="col-6 d-flex justify-content-center">
 				<div class="pt-5">	
 					<i class="fas fa-cloud-download-alt fa-3x"></i>
 				</div>
@@ -67,4 +67,30 @@ function new_game_template() {
 		</div>
 	</form>
 	`
+}
+
+function no_profiles() {
+	$("#game-overlay").html(`
+		<div class="wrapper row justify-content-center">
+			<div class="align-self-center">
+				<div class="row justify-content-end">
+					<button onclick="return hide_overlay('#game-overlay')" class="btn bg-transparent">
+						<i class="fas fa-times fa-4x"></i>
+					</button>							
+				</div>
+				<h3 class="text-center">No profiles found!</h3>	
+				<hr>
+				<div class="row justify-content-center">
+					<h4 class="text-center"> Create one now? </h4>
+				</div>
+				<div class="row justify-content-center">
+					<div class="pt-3">	
+						<button onclick="return new_game()" class="btn bg-transparent"><i class="fas fa-gamepad fa-3x"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	`)
+	simon_layout()
+	$("#game-overlay").fadeIn(500)
 }
