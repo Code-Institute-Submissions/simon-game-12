@@ -24,6 +24,7 @@ Gmae menu
 
 function new_game() {
 	column_animation(0)
+	play_audio(0)
 	$("#game-centre h2").fadeOut(500);
 	$("#game-overlay").html(new_game_template()).fadeIn(500);
 	$("#game-overlay input[type=checkbox]").change(function () {
@@ -58,6 +59,7 @@ function game_centre_h2(selector) {
 
 function load_game() {
 	column_animation(1)
+	play_audio(1)
 	if (load_data()) {
 
 	} else {
@@ -67,6 +69,7 @@ function load_game() {
 
 function statistics() {
 	column_animation(2)
+	play_audio(2)
 	if (load_data()) {
 		
 	} else {
@@ -75,7 +78,8 @@ function statistics() {
 }
 
 function settings() {
-	column_animation(3)
+	column_animation(3);
+	play_audio(3)
 }
 
 /* 
@@ -170,9 +174,9 @@ Play audio file
 */
 
 function play_audio(id) {
-	let mp3 = document.createElement("audio");
-	mp3.src = `/static/sounds/${id}.mp3`;
-	mp3.volume = 1;
-	mp3.autoPlay = false;
-	mp3.play();
+	let obj = document.createElement("audio");
+	obj.src = `/static/sounds/${id}.mp3`;
+	obj.volume = 1;
+	obj.autoPlay = false;
+	obj.play();
 }
