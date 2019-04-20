@@ -19,6 +19,21 @@ GOOGLE FONT
 General
 */
 
+:root {
+	--green-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+		#00db78 0px 0px 20px, #00db78 0px 0px 30px, #00db78 0px 0px 40px,
+		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
+	--red-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+		#d33131 0px 0px 20px, #d33131 0px 0px 30px, #d33131 0px 0px 40px,
+		#d33131 0px 0px 50px, #d33131 0px 0px 75px;
+	--yelow-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+		#f7bf18 0px 0px 20px, #f7bf18 0px 0px 30px, #f7bf18 0px 0px 40px,
+		#f7bf18 0px 0px 50px, #f7bf18 0px 0px 75px;
+	--blue-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+		#1d89f4 0px 0px 20px, #1d89f4 0px 0px 30px, #1d89f4 0px 0px 40px,
+		#1d89f4 0px 0px 50px, #1d89f4 0px 0px 75px;
+}
+
 body {
 	font-family: "Maven Pro", sans-serif;
 }
@@ -48,9 +63,7 @@ form {
 }
 
 hr {
-	box-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#00db78 0px 0px 20px, #00db78 0px 0px 30px, #00db78 0px 0px 40px,
-		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
+	box-shadow: var(--green-shadow)
 }
 
 /* 
@@ -59,9 +72,7 @@ Nav
 
 a:hover {
 	color: #ffffff;
-	text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#d33131 0px 0px 20px, #d33131 0px 0px 30px, #d33131 0px 0px 40px,
-		#d33131 0px 0px 50px, #d33131 0px 0px 75px;
+	text-shadow: var(--red-shadow)
 }
 
 .nav-link {
@@ -180,28 +191,22 @@ input[type=checkbox] {
 }
 
 .fa-gamepad {
-	text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#00db78 0px 0px 20px, #00db78 0px 0px 30px, #00db78 0px 0px 40px,
-		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
+	text-shadow: var(--green-shadow)
 }
 
 .fa-cloud-download-alt,
 .fa-times {
-	text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#d33131 0px 0px 20px, #d33131 0px 0px 30px, #d33131 0px 0px 40px,
-		#d33131 0px 0px 50px, #d33131 0px 0px 75px;
+	text-shadow: var(--red-shadow);
 }
 
 .fa-chart-area {
-	text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#f7bf18 0px 0px 20px, #f7bf18 0px 0px 30px, #f7bf18 0px 0px 40px,
-		#f7bf18 0px 0px 50px, #f7bf18 0px 0px 75px;
+	text-shadow: var(--yelow-shadow);
 }
 
+
 .fa-cogs {
-	text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#1d89f4 0px 0px 20px, #1d89f4 0px 0px 30px, #1d89f4 0px 0px 40px,
-		#1d89f4 0px 0px 50px, #1d89f4 0px 0px 75px;
+	text-shadow: var(--blue-shadow);
+
 }
 
 /* 
@@ -215,9 +220,7 @@ New game form
 .btn-outline-success:hover {
 	color: #13181d;
 	font-weight: 800;
-	box-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-		#00db78 0px 0px 20px, #00db78 0px 0px 30px, #00db78 0px 0px 40px,
-		#00db78 0px 0px 50px, #00db78 0px 0px 75px;
+	box-shadow: var(--green-shadow)
 }
 
 .fa-times:hover {

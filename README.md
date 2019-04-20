@@ -22,6 +22,7 @@
 		- [0.3](#03)
 		- [0.4](#04)
 		- [0.5](#05)
+		- [0.6](#06)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -227,6 +228,12 @@ The project has been tested on commonly used devices and browsers such as:
   - [simon.js](/static/js/custom/simon.js)
     - fixed issue in `game_round()` when sounds and animations will play all ate once (added +1000 `delay`  for every element in sequence)
     - added transparent overlay while playing sequence to preven user to click on elements before the sequence finish
+
+### 0.6
+
+- **Changelog**
+  - [styles.js](/static/css/custom/styles.css)
+    - added CSS variables to keep the code clean
 
 [**To top**](#Table-of-Contents)
 
