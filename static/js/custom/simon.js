@@ -42,47 +42,6 @@ function new_game() {
 	});
 }
 
-
-/* 
-Game centre
-*/
-
-function game_centre_h2() {
-	$('#game-centre h2').html(`
-		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
-	`)
-		.fadeIn(500);
-	return false
-}
-
-
-function load_game() {
-	flash_play(1)
-	$("#game-centre h2").fadeOut(500);
-	if (load_data()) {
-		$("#game-overlay").html(no_feature()).fadeIn(500);
-		
-	} else {
-		return no_profiles()
-	}
-}
-
-function statistics() {
-	flash_play(2)
-	$("#game-centre h2").fadeOut(500);
-	if (load_data()) {		
-		$("#game-overlay").html(no_feature()).fadeIn(500);
-	} else {
-		return no_profiles()	
-	}
-}
-
-function settings() {
-	flash_play(3)
-	$("#game-centre h2").fadeOut(500);
-	$("#game-overlay").html(no_feature()).fadeIn(500);
-}
-
 /* 
 Create new game
 */
@@ -130,14 +89,68 @@ function create_game() {
 Start new game
 */
 
-function start_game(profile) {	
-	$.when(hide_menu()).then(game_round(profile));		
+function start_game(profile) {
+	$("#profile-id").html(profile.id)
+	$.when(hide_menu()).then(game_round(profile));
+	return false
+}
+
+/* 
+Load game data from localStorage
+*/
+
+function load_game() {
+	flash_play(1)
+	$("#game-centre h2").fadeOut(500);
+	if (load_data()) {
+		$("#game-overlay").html(no_feature()).fadeIn(500);
+		
+	} else {
+		return no_profiles()
+	}
+}
+
+/* 
+Show statistics for existing profiles
+*/
+
+function statistics() {
+	flash_play(2)
+	$("#game-centre h2").fadeOut(500);
+	if (load_data()) {		
+		$("#game-overlay").html(no_feature()).fadeIn(500);
+	} else {
+		return no_profiles()	
+	}
+}
+
+/* 
+Game setting menu
+*/
+
+function settings() {
+	flash_play(3)
+	$("#game-centre h2").fadeOut(500);
+	$("#game-overlay").html(no_feature()).fadeIn(500);
+}
+
+
+
+/* 
+Game centre
+*/
+
+function game_centre_h2() {
+	$('#game-centre h2').html(`
+		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
+	`)
+		.fadeIn(500);
 	return false
 }
 
 function hide_menu() {
 	$("#game-menu").fadeOut(500);
-	$("#game-overlay").fadeOut(500);
+	$("#game-overlay").empty().fadeOut(500);
 	game_centre_h2()
 }
 
@@ -145,7 +158,12 @@ function hide_menu() {
 Create a game round
 */
 
-function game_round(game_save) {	
+function game_round(game_save) {
+	let background = $("#game-overlay").css("background")
+	if (background != "transparent") {
+		$("#game-overlay").css("background", "transparent")
+	}	
+	$("#game-overlay").fadeIn()
 	let sequence = game_save.sequence
 	var delay = 1000;
 	for (let i = 0; i < sequence.length; i++) {
@@ -156,6 +174,94 @@ function game_round(game_save) {
 		delay += 1000
 		
 	}
+	setTimeout(() => {
+		$("#game-overlay").fadeOut()
+	}, delay);
+	return game_save
+}
+
+/* 
+Create random sequence
+*/
+
+function create_sequence(profile_index, profile) {
+	profile.org_sequence = []
+	var z = 0;
+	while (z < profile.round) {
+		profile.org_sequence.push(random_ele())
+		z += 1
+	}
+	profile.sequence = profile.org_sequence
+	update_profile(profile_index, profile)
+}
+
+/* 
+Check user answer
+*/
+
+function check_answer(btn_id) {
+	let profile_index = parseInt($("#profile-id").html()) - 1
+	let profile = get_profile(profile_index)
+	if (profile) {
+		// IF user answer is correct
+		if (profile.sequence[0] == btn_id) {
+			//$("#game-overlay").empty().fadeIn();
+			profile.sequence.shift()
+			if (profile.sequence.length === 0) {
+				profile.round += 1
+				check_game_end(profile_index, profile);
+				create_sequence(profile_index, profile);
+				setTimeout(() => {
+					return game_round(profile);
+				}, 300);				
+			}
+			setTimeout(() => {
+				hide_menu();
+			}, 3000);
+			$("#game-centre h2").html(`
+				<p class="lead text-success">CORRECT!</p>
+			`)			
+			update_profile(profile_index, profile)
+		// IF user answer is incorrect	
+		} else {
+			$("#game-overlay").empty().fadeIn()
+			setTimeout(() => {
+				hide_menu();
+			}, 3000);
+			$("#game-centre h2").html(`
+				<p class="lead text-danger">WRONG!</p>
+			`)
+			profile.sequence = profile.org_sequence;
+			update_profile(profile_index, profile)
+		}
+	} else {
+		js_alerts("danger", "Unable to load profile!")
+		load_data();
+		return false
+	} 
+}
+
+/* 
+End the game
+*/
+
+function check_game_end(profile) {
+	let difficulty = function() {
+		if (profile.difficulty === "normal") {
+			return 10
+		} else if (profile.difficulty === "medium") {
+			return 15
+		} else {
+			return 20
+		}
+	}
+	if (difficulty === profile.round) {
+		console.log("END")
+		$("#game-centre h2").html(`
+				<p class="lead text-danger">END!</p>
+			`)
+		$("#game-overlay").empty().fadeIn();
+	} 
 }
 
 /* 

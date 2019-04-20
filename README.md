@@ -11,6 +11,7 @@
 	- [**Features**](#features)
 		- [Existing Features](#existing-features)
 		- [Features left to implement](#features-left-to-implement)
+		- [What could be done better](#what-could-be-done-better)
 	- [**Technologies Used**](#technologies-used)
 	- [**Testing**](#testing)
 		- [Tools used for testing](#tools-used-for-testing)
@@ -107,6 +108,12 @@ Something
 - limited tries
 - statistics
 - different themes
+
+### What could be done better
+
+- error hadling
+  - right none minimum to none. Also not enough feedback to user if something goes wrong
+- the whole code was tested manualy. More automated tests
 
 [**To top**](#Table-of-Contents)
 
@@ -213,6 +220,9 @@ The project has been tested on commonly used devices and browsers such as:
     - added `no_profiles()` template
   - [testing.js](/static/js/custom/testing.js)
     - to hold testing function and keep them separately from main code
+  - [simon.js](/static/js/custom/simon.js)
+    - `check_answer()` added functionality to check for user inputs
+    - `check_game_end()` added fundamentals for ending the game
 - **Fixes**
   - [simon.js](/static/js/custom/simon.js)
     - fixed issue in `game_round()` when sounds and animations will play all ate once (added +1000 `delay`  for every element in sequence)
