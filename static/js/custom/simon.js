@@ -25,7 +25,7 @@ Game menu
 
 function new_game() {
 	flash_play(0)
-	$("#game-centre h2").fadeOut(500);
+	$("#game-centre div").fadeOut(500);
 	$("#game-overlay").html(new_game_template()).fadeIn(500);
 	$("#game-overlay input[type=checkbox]").change(function () {
 		let checked = $(".form-check-input:checkbox:checked");
@@ -47,7 +47,7 @@ Create new game
 */
 
 function create_game() {
-	$("#game-centre h2").fadeIn(1000);
+	$("#game-centre div").fadeIn(1000);
 	let name = $("#game-overlay input[name=name]").val().split()
 	let difficulty = $("#difficulty").val()
 	let sound_on = $(".form-check-input:checkbox").val()
@@ -101,7 +101,7 @@ Load game data from localStorage
 
 function load_game() {
 	flash_play(1)
-	$("#game-centre h2").fadeOut(500);
+	$("#game-centre div").fadeOut(500);
 	if (load_data()) {
 		$("#game-overlay").html(no_feature()).fadeIn(500);
 		
@@ -116,7 +116,7 @@ Show statistics for existing profiles
 
 function statistics() {
 	flash_play(2)
-	$("#game-centre h2").fadeOut(500);
+	$("#game-centre div").fadeOut(500);
 	if (load_data()) {		
 		$("#game-overlay").html(no_feature()).fadeIn(500);
 	} else {
@@ -130,7 +130,7 @@ Game setting menu
 
 function settings() {
 	flash_play(3)
-	$("#game-centre h2").fadeOut(500);
+	$("#game-centre div").fadeOut(500);
 	$("#game-overlay").html(no_feature()).fadeIn(500);
 }
 
@@ -141,8 +141,18 @@ Game centre
 */
 
 function game_centre_h2() {
-	$('#game-centre h2').html(`
-		<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>
+	$('#game-centre').html(`
+		<div class="align-self-center">
+			<h2 class="text-center">
+				<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>		
+			</h2>
+			<hr class="mt-3 mb-4">
+			<div class="text-center">
+				<button class="btn bg-transparent">
+					<i class="fas fa-question fa-4x"></i>
+				</button>
+			</div>
+		</div>
 	`)
 		.fadeIn(500);
 	return false
@@ -158,12 +168,12 @@ function hide_menu() {
 Create a game round
 */
 
-function game_round(game_save) {
-	let background = $("#game-overlay").css("background")
-	if (background != "transparent") {
-		$("#game-overlay").css("background", "transparent")
-	}	
+function game_round(game_save) {	
+	$("#game-overlay").css("background", "transparent")
 	$("#game-overlay").fadeIn()
+	$("#game-centre h2").html(`
+		<i class="fas fa-music fa-2x"></i>
+	`)
 	let sequence = game_save.sequence
 	var delay = 1000;
 	for (let i = 0; i < sequence.length; i++) {
@@ -171,11 +181,10 @@ function game_round(game_save) {
 			flash_play(sequence[i]);
 		}, delay);	
 		
-		delay += 1000
-		
+		delay += 1000		
 	}
 	setTimeout(() => {
-		$("#game-overlay").fadeOut()
+		$("#game-overlay").fadeOut();
 	}, delay);
 	return game_save
 }
@@ -205,7 +214,9 @@ function check_answer(btn_id) {
 	if (profile) {
 		// IF user answer is correct
 		if (profile.sequence[0] == btn_id) {
-			//$("#game-overlay").empty().fadeIn();
+			if (profile.sequence.length === 1) {
+				$("#game-overlay").empty().fadeIn();
+			}
 			profile.sequence.shift()
 			if (profile.sequence.length === 0) {
 				profile.round += 1
@@ -226,7 +237,7 @@ function check_answer(btn_id) {
 				hide_menu();
 			}, 3000);
 			$("#game-centre h2").html(`
-				<p class="lead text-danger">WRONG!</p>
+				<p class="lead ">WRONG!</p>
 			`)
 			profile.sequence = profile.org_sequence;
 			update_profile(profile_index, profile)
@@ -255,7 +266,7 @@ function check_game_end(profile) {
 	if (difficulty === profile.round) {
 		console.log("END")
 		$("#game-centre h2").html(`
-				<p class="lead text-danger">END!</p>
+				<p class="lead ">END!</p>
 			`)
 		$("#game-overlay").empty().fadeIn();
 	} 

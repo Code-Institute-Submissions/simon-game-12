@@ -51,8 +51,7 @@ function new_game_template() {
 			</div>
 			<div class="form-group">
 				<select class="form-control" id="difficulty">
-					<option selected="true" value="" disable>Difficulty</option>
-					<option value="normal">Normal (10)</option>
+					<option selected="true" value="normal">Normal (10)</option>
 					<option value="medium">Medium (15)</option>
 					<option value="hard">Hard (20)</option>
 				</select>

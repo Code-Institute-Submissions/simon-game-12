@@ -32,6 +32,9 @@ General
 	--blue-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
 		#1d89f4 0px 0px 20px, #1d89f4 0px 0px 30px, #1d89f4 0px 0px 40px,
 		#1d89f4 0px 0px 50px, #1d89f4 0px 0px 75px;
+	--info-shadow:#fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+		#13181d 0px 0px 20px, #13181d 0px 0px 30px, #13181d 0px 0px 40px,
+		#13181d 0px 0px 50px, #13181d 0px 0px 75px;
 }
 
 body {
@@ -142,10 +145,20 @@ main {
 	background-image: linear-gradient(120deg, #f7bf18, #1d89f4, #1d89f4);
 }
 
+/* 
+Game centre
+*/
+
 #game-centre {
 	position: absolute;
 	z-index: 3;
 	background-color: #13181d;
+}
+
+#game-centre .lead {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #474c50;
 }
 
 /* 
@@ -167,10 +180,11 @@ Game Overlay and Game Menu
 
 #game-overlay,
 #game-menu {
-	background: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 #game-menu .col-6:hover i,
+#game-centre button:hover i,
 .wrapper .fa-gamepad:hover {
 	transform: scale(1.3);
 }
@@ -195,8 +209,12 @@ input[type=checkbox] {
 }
 
 .fa-cloud-download-alt,
-.fa-times {
+.fa-times,
+#game-centre h2 p {
 	text-shadow: var(--red-shadow);
+}
+.fa-question {
+	text-shadow: var(--info-shadow);
 }
 
 .fa-chart-area {
