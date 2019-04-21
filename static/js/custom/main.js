@@ -23,6 +23,16 @@ $(document).ready(function () {
 		return settings()
 	});
 	// Game tiles
+	add_click_events()
+
+});
+
+
+/* 
+Add listeners 
+*/
+
+function add_click_events() {
 	$("#game-col-0").click(function () {
 		check_answer(0)
 		return flash_play(0)
@@ -39,9 +49,18 @@ $(document).ready(function () {
 		check_answer(3)
 		return flash_play(3)
 	});
+};
 
-});
+/* 
+Remove listeners
+*/
 
+function remove_click_events() {
+	$("#game-col-0").off("click");
+	$("#game-col-1").off("click");
+	$("#game-col-2").off("click");
+	$("#game-col-3").off("click");
+};
 
 /* 
 Alerts

@@ -34,6 +34,29 @@ function game_menu() {
 }
 
 /* 
+Game centre
+*/
+
+function game_centre_h2() {
+	$('#game-centre').html(`
+		<div class="align-self-center">
+			<h2 class="text-center">
+				<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>		
+			</h2>
+			<hr class="mt-3 mb-4">
+			<div class="text-center">
+				<button class="btn bg-transparent">
+					<i class="fas fa-question fa-4x"></i>
+				</button>
+			</div>
+		</div>
+	`)
+		.fadeIn(500);
+	return false
+}
+
+
+/* 
 New game form
 */
 

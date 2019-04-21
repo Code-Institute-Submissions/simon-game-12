@@ -140,24 +140,6 @@ function settings() {
 Game centre
 */
 
-function game_centre_h2() {
-	$('#game-centre').html(`
-		<div class="align-self-center">
-			<h2 class="text-center">
-				<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>		
-			</h2>
-			<hr class="mt-3 mb-4">
-			<div class="text-center">
-				<button class="btn bg-transparent">
-					<i class="fas fa-question fa-4x"></i>
-				</button>
-			</div>
-		</div>
-	`)
-		.fadeIn(500);
-	return false
-}
-
 function hide_menu() {
 	$("#game-menu").fadeOut(500);
 	$("#game-overlay").empty().fadeOut(500);
@@ -168,7 +150,8 @@ function hide_menu() {
 Create a game round
 */
 
-function game_round(game_save) {	
+function game_round(game_save) {
+	remove_click_events()	
 	$("#game-overlay").css("background", "transparent")
 	$("#game-overlay").fadeIn()
 	$("#game-centre h2").html(`
@@ -184,7 +167,8 @@ function game_round(game_save) {
 		delay += 1000		
 	}
 	setTimeout(() => {
-		$("#game-overlay").fadeOut();
+		add_click_events()
+		hide_menu()
 	}, delay);
 	return game_save
 }
@@ -225,10 +209,7 @@ function check_answer(btn_id) {
 				setTimeout(() => {
 					return game_round(profile);
 				}, 300);				
-			}
-			setTimeout(() => {
-				hide_menu();
-			}, 3000);		
+			}		
 			update_profile(profile_index, profile)
 		// IF user answer is incorrect	
 		} else {

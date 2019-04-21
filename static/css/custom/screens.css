@@ -6,12 +6,6 @@ Main Game content
 	#game-centre h2 {
 		font-size: 1.5rem;
 	}
-	#game-container,
-	#game-centre,
-	#game-overlay {
-		max-height: 600px;
-		max-width: 600px;
-	}
 }
 
 @media (min-width: 768px) {
@@ -25,3 +19,12 @@ Main Game content
 		font-size: 7rem;
 	}
 }
+@media (min-width: 1800px) { 
+	#game-container,
+	#game-centre,
+	#game-overlay,
+	#game-menu {
+		max-height: 700px;
+		max-width: 700px;
+	}
+ }

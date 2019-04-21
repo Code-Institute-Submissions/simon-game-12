@@ -101,8 +101,8 @@ main {
 #game-centre,
 #game-overlay,
 #game-menu {
-	max-height: 800px;
-	max-width: 800px;
+	max-height: 600px;
+	max-width: 600px;
 	border-radius: 13%;
 }
 
@@ -201,11 +201,12 @@ input[type=checkbox] {
 }
 
 .form-check label {
-	font-size: 1.5rem
+	font-size: 1.5rem;
 }
 
-.fa-gamepad {
-	text-shadow: var(--green-shadow)
+.fa-gamepad,
+.fa-music {
+	text-shadow: var(--green-shadow);
 }
 
 .fa-cloud-download-alt,

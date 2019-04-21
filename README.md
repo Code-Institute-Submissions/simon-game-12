@@ -234,8 +234,11 @@ The project has been tested on commonly used devices and browsers such as:
 - **Changelog**
   - [styles.js](/static/css/custom/styles.css)
     - added CSS variables to keep the code clean
+    - `max-height` and `max-width` set `600px` as I decided to make the game smaller
   - [index.html](/index.html)
     - redesigned `#game-centre`
+  - [main.js](/static/js/custom/main.js)
+    - added `add_click_events()` and `remove_click_events()` for more security
 - **Fixes**
   - [simon.js](/static/js/custom/simon.js)
     - fixed issue in `check_answer()` with rapid clicks
