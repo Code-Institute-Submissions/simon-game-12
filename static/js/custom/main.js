@@ -23,7 +23,7 @@ $(document).ready(function () {
 		return settings()
 	});
 	// Game tiles
-	add_click_events()
+	add_click_events();
 
 });
 

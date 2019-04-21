@@ -242,6 +242,7 @@ The project has been tested on commonly used devices and browsers such as:
 - **Fixes**
   - [simon.js](/static/js/custom/simon.js)
     - fixed issue in `check_answer()` with rapid clicks
+    - fixed issue with `check_game_end()` as the game was not ending properly
 
 [**To top**](#Table-of-Contents)
 

@@ -6,6 +6,9 @@ Main Game content
 	#game-centre h2 {
 		font-size: 1.5rem;
 	}
+	#game-centre #round-number {
+		font-size: 4rem;
+	}
 }
 
 @media (min-width: 768px) {

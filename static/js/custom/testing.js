@@ -10,6 +10,7 @@ function random_sequence() {
 		var game_save = {
 			"org_sequence": [],
 			"sound_on": "on",
+			"difficulty" : "test"
 		}
 		var z = 0;
 		while (z < how_many) {

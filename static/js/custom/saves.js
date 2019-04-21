@@ -36,8 +36,12 @@ Construct a game save
 function SimonSave(params) {
 	this.id = params.id;
 	this.name = params.name;
+
 	this.difficulty = params.difficulty;
+	//this.difficulty = "test";
+
 	this.sound_on = params.sound_on;
+	this.random = "off";
 	this.org_sequence = [random_ele()];
 	this.round = 1;
 	this.correct = 0;

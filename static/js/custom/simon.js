@@ -151,26 +151,27 @@ Create a game round
 */
 
 function game_round(game_save) {
-	remove_click_events()	
-	$("#game-overlay").css("background", "transparent")
-	$("#game-overlay").fadeIn()
-	$("#game-centre h2").html(`
-		<i class="fas fa-music fa-2x"></i>
-	`)
-	let sequence = game_save.sequence
-	var delay = 1000;
-	for (let i = 0; i < sequence.length; i++) {
-		setTimeout(() => {
-			flash_play(sequence[i]);
-		}, delay);	
-		
-		delay += 1000		
-	}
+	round_number(game_save);
 	setTimeout(() => {
-		add_click_events()
-		hide_menu()
-	}, delay);
-	return game_save
+		remove_click_events()
+		$("#game-overlay").css("background", "transparent")
+		$("#game-overlay").fadeIn()
+		music_icon();
+		let sequence = game_save.sequence
+		var delay = 1000;
+		for (let i = 0; i < sequence.length; i++) {
+			setTimeout(() => {
+				flash_play(sequence[i]);
+			}, delay);
+
+			delay += 1000
+		}
+		setTimeout(() => {
+			add_click_events()
+			hide_menu()
+		}, delay);
+		return game_save
+	}, 1500);	
 }
 
 /* 
@@ -178,14 +179,21 @@ Create random sequence
 */
 
 function create_sequence(profile_index, profile) {
-	profile.org_sequence = []
-	var z = 0;
-	while (z < profile.round) {
+	if (profile.random == "on") {
+		profile.org_sequence = []
+		var z = 0;
+		while (z < profile.round) {
+			profile.org_sequence.push(random_ele())
+			z += 1
+		}
+		profile.sequence = profile.org_sequence
+		update_profile(profile_index, profile)
+	} else {
 		profile.org_sequence.push(random_ele())
-		z += 1
+		profile.sequence = profile.org_sequence
+		update_profile(profile_index, profile)
 	}
-	profile.sequence = profile.org_sequence
-	update_profile(profile_index, profile)
+	
 }
 
 /* 
@@ -203,13 +211,15 @@ function check_answer(btn_id) {
 			}
 			profile.sequence.shift()
 			if (profile.sequence.length === 0) {
+				check_game_end(profile);
 				profile.round += 1
-				check_game_end(profile_index, profile);
+				
 				create_sequence(profile_index, profile);
 				setTimeout(() => {
 					return game_round(profile);
 				}, 300);				
-			}		
+			}
+			profile.correct += 1		
 			update_profile(profile_index, profile)
 		// IF user answer is incorrect	
 		} else {
@@ -220,6 +230,7 @@ function check_answer(btn_id) {
 			$("#game-centre h2").html(`
 				<p class="lead ">WRONG!</p>
 			`)
+			profile.wrong += 1		
 			profile.sequence = profile.org_sequence;
 			update_profile(profile_index, profile)
 		}
@@ -235,14 +246,15 @@ End the game
 */
 
 function check_game_end(profile) {
-	let difficulty = function() {
-		if (profile.difficulty === "normal") {
-			return 10
-		} else if (profile.difficulty === "medium") {
-			return 15
-		} else {
-			return 20
-		}
+	let difficulty = 0
+	if (profile.difficulty === "normal") {
+		difficulty = 10
+	} else if (profile.difficulty === "medium") {
+		difficulty = 15
+	} else if (profile.difficulty === "test") {
+		difficulty = 1
+	} else {
+		difficulty = 20
 	}
 	if (difficulty === profile.round) {
 		console.log("END")
