@@ -35,6 +35,9 @@ General
 	--info-shadow:#fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
 		#13181d 0px 0px 20px, #13181d 0px 0px 30px, #13181d 0px 0px 40px,
 		#13181d 0px 0px 50px, #13181d 0px 0px 75px;
+	--menu-shadow:#13181d 0px 0px 5px, #13181d 0px 0px 10px, #fff 0px 0px 15px,
+		#13181d 0px 0px 20px, #13181d 0px 0px 30px, #13181d 0px 0px 40px,
+		#13181d 0px 0px 50px, #13181d 0px 0px 75px;
 }
 
 body {
@@ -179,19 +182,24 @@ Game Overlay and Game Menu
 	left: 0;
 }
 
-#game-overlay {
+#game-overlay,
+#load-game,
+#statistics-modal  {
 	display: none;
 	z-index: 4;
 }
 
 #game-overlay,
-#game-menu {
+#game-menu,
+#load-game,
+#statistics-modal  {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
 #game-menu .col-6:hover i,
 #game-centre button:hover i,
-.wrapper .fa-gamepad:hover {
+.wrapper .fa-gamepad:hover,
+.wrapper .fa-trash-alt:hover {
 	transform: scale(1.3);
 }
 
@@ -216,6 +224,7 @@ input[type=checkbox] {
 
 .fa-cloud-download-alt,
 .fa-times,
+.fa-trash-alt,
 #game-centre h2 p {
 	text-shadow: var(--red-shadow);
 }
@@ -252,7 +261,7 @@ New game form
 }
 
 /* 
-Load game
+Load / statistics-modal game
 */
 
 .wrapper h3 {
@@ -261,4 +270,20 @@ Load game
 
 .wrapper h4 {
 	color: #00db78;
+}
+
+#load-game,
+#statistics-modal {
+	border-radius: 0 0 5% 5%;
+	height: 90vh;
+	box-shadow: var(--menu-shadow)
+}
+
+#load-game > .row:nth-child(2),
+#statistics-modal > .row:nth-child(2) {
+	height: 70vh;
+}
+
+.table thead th {
+	border-top: 0;	
 }

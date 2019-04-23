@@ -23,6 +23,7 @@
 		- [0.4](#04)
 		- [0.5](#05)
 		- [0.6](#06)
+		- [0.7](#07)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -99,16 +100,14 @@ Something
 
 ### Features left to implement
 
-- add script to resize the game when user change to landscape
-- save / load (localStorage)
-- sound on/off
-- difficulties
-  - normal (10)
-  - medium (15)
-  - hard (20)  
+- sound on/off  
 - limited tries
 - statistics
 - different themes
+- let user to delete profiles
+- when loading the game the sequence is played again and this can be used to cheat the game. However, I did not want skip this as after a while user will probably forget the sequence I left it like that.
+- limit sequence replays
+  - did not add it as you can play the sequence when game is loaded so it can be cheated anyway
 
 ### What could be done better
 
@@ -243,6 +242,13 @@ The project has been tested on commonly used devices and browsers such as:
   - [simon.js](/static/js/custom/simon.js)
     - fixed issue in `check_answer()` with rapid clicks
     - fixed issue with `check_game_end()` as the game was not ending properly
+
+### 0.7
+
+- **Changelog**
+  - [index.html](/index.html)
+    - added functionality for user to be able to load a game in progress and continue where he finished
+- **Fixes**
 
 [**To top**](#Table-of-Contents)
 

@@ -3,17 +3,9 @@ Create game data
 */
 
 function create_data(params) {
-
-
-	/* Testing */
-	clear_ls();
-
-
-
-
 	if (load_data()) {
 		let simon_saves = load_data();
-		params.id = simon_saves.length + 1
+		params.id = simon_saves.length
 		const simon_save = new SimonSave(params);
 		simon_save.sequence = simon_save.org_sequence;
 		simon_saves.push(simon_save);

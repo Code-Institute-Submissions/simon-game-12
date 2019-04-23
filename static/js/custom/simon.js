@@ -67,7 +67,7 @@ function create_game() {
 	} else {
 		//Create new profile
 		let params = {
-			"id": 1,
+			"id": 0,
 			"name": name[0],
 			"difficulty": difficulty,
 			"sound_on": sound_on,
@@ -99,14 +99,31 @@ function start_game(profile) {
 Load game data from localStorage
 */
 
-function load_game() {
+function load_game_menu() {
 	flash_play(1)
-	$("#game-centre div").fadeOut(500);
+	$("#game-centre div").fadeOut(1000);		
 	if (load_data()) {
-		$("#game-overlay").html(no_feature()).fadeIn(500);
+		$("main .container-fluid").fadeOut(500);
+		profiles_template(load_data())
+		setTimeout(() => {
+			simon_layout();
+			$("#load-game").slideDown(500);
+		}, 700)
 		
 	} else {
 		return no_profiles()
+	}
+}
+
+
+function load_game(id) {
+	let profile = get_profile(id);
+	if (profile) {
+		$("#profile-id").html(profile.id);
+		$.when(hide_overlay('#load-game'), hide_menu()).then(game_round(profile));
+	} else {
+		js_alerts("danger", "Unable to load profile!");
+		return false
 	}
 }
 
@@ -116,11 +133,15 @@ Show statistics for existing profiles
 
 function statistics() {
 	flash_play(2)
-	$("#game-centre div").fadeOut(500);
-	if (load_data()) {		
-		$("#game-overlay").html(no_feature()).fadeIn(500);
+	$("main .container-fluid").fadeOut(500);
+	if (load_data()) {
+		setTimeout(() => {
+			simon_layout();
+			$("#statistics-modal").slideDown(500);
+		}, 700)
+
 	} else {
-		return no_profiles()	
+		return no_profiles()
 	}
 }
 
@@ -154,10 +175,10 @@ function game_round(game_save) {
 	round_number(game_save);
 	setTimeout(() => {
 		remove_click_events()
-		$("#game-overlay").css("background", "transparent")
-		$("#game-overlay").fadeIn()
+		$("#game-overlay").css("background", "transparent");
+		$("#game-overlay").fadeIn();
 		music_icon();
-		let sequence = game_save.sequence
+		let sequence = game_save.sequence;
 		var delay = 1000;
 		for (let i = 0; i < sequence.length; i++) {
 			setTimeout(() => {
@@ -167,8 +188,8 @@ function game_round(game_save) {
 			delay += 1000
 		}
 		setTimeout(() => {
-			add_click_events()
-			hide_menu()
+			add_click_events();
+			hide_menu();
 		}, delay);
 		return game_save
 	}, 1500);	
@@ -180,18 +201,18 @@ Create random sequence
 
 function create_sequence(profile_index, profile) {
 	if (profile.random == "on") {
-		profile.org_sequence = []
+		profile.org_sequence = [];
 		var z = 0;
 		while (z < profile.round) {
-			profile.org_sequence.push(random_ele())
-			z += 1
+			profile.org_sequence.push(random_ele());
+			z += 1;
 		}
-		profile.sequence = profile.org_sequence
-		update_profile(profile_index, profile)
+		profile.sequence = profile.org_sequence;
+		update_profile(profile_index, profile);
 	} else {
 		profile.org_sequence.push(random_ele())
-		profile.sequence = profile.org_sequence
-		update_profile(profile_index, profile)
+		profile.sequence = profile.org_sequence;
+		update_profile(profile_index, profile);
 	}
 	
 }
@@ -201,7 +222,7 @@ Check user answer
 */
 
 function check_answer(btn_id) {
-	let profile_index = parseInt($("#profile-id").html()) - 1
+	let profile_index = parseInt($("#profile-id").html())
 	let profile = get_profile(profile_index)
 	if (profile) {
 		// IF user answer is correct
@@ -212,7 +233,7 @@ function check_answer(btn_id) {
 			profile.sequence.shift()
 			if (profile.sequence.length === 0) {
 				check_game_end(profile);
-				profile.round += 1
+				profile.round += 1;
 				
 				create_sequence(profile_index, profile);
 				setTimeout(() => {

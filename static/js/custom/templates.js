@@ -10,7 +10,7 @@ function game_menu() {
 					<i class="fas fa-gamepad fa-3x"></i>
 				</div>
 			</div>
-			<div id="wrapper" class="col-6 d-flex justify-content-center">
+			<div id="load-game-menu" class="col-6 d-flex justify-content-center">
 				<div class="pt-5">	
 					<i class="fas fa-cloud-download-alt fa-3x"></i>
 				</div>
@@ -135,4 +135,51 @@ function no_profiles() {
 	`)
 	simon_layout()
 	$("#game-overlay").fadeIn(500)
+}
+
+/* 
+Load profiles
+*/
+
+function profiles_template(profiles) {
+	$("#profiles").html(`
+		<div class="col-md-8">
+			<div class="table-responsive">
+				<table class="table text-center text-light" width="100%" cellspacing="0">
+					<thead>
+						<tr class="text-center">
+							<th class="pb-5">Profile</th>					
+							<th class="pb-5">Progress</th>
+							<th class="pb-5">Load</th>
+						</tr>
+					</thead>
+					
+					
+				</table>
+			</div>
+		</div>
+	`);
+	let difficulty = 0
+	for (let i = 0; i < profiles.length; i++) {
+		if (profiles[i].difficulty == "normal") {
+			difficulty = 10
+		} else if (profiles[i].difficulty == "medium") {
+			difficulty = 15
+		} else if (profiles[i].difficulty == "test") {
+			difficulty = 1
+		} else {
+			difficulty = 20
+		}
+		$("#profiles .table").append(`
+			<tbody>
+				<tr>
+					<td>${profiles[i].name}</td>
+					<td>${profiles[i].round} / ${difficulty}</td>
+					<td>
+						<button onclick="load_game(${[i]})" class="btn bg-transparent" type="button"><i class="fas fa-gamepad fa-2x"></i></button>
+					</td>
+				</tr>
+			</tbody>
+		`)		
+	}
 }

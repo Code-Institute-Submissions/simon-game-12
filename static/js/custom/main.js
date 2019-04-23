@@ -13,8 +13,8 @@ $(document).ready(function () {
 	$("#new-game").click(function () { 
 		return new_game()	
 	});
-	$("#wrapper").click(function () {
-		return load_game()
+	$("#load-game-menu").click(function () {
+		return load_game_menu()
 	});
 	$("#statistics").click(function () {
 		return statistics()
@@ -83,8 +83,12 @@ Close #game-overlay
 
 function hide_overlay(overlay) {
 	play_audio("incorrect")
-	$(overlay).fadeOut(500);
-	game_centre_h2();
+	$(overlay).fadeOut(500);	
+	setTimeout(() => {		
+		$("main .container-fluid").fadeIn(500);
+		game_centre_h2();
+		simon_layout();
+	}, 700);
 	return false
 }
 
