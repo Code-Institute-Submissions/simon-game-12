@@ -163,6 +163,7 @@ function sounds() {
 		$("#sound-setting p:nth-child(2)").html("Sounds off !");
 		const simon_setting = new CreateGameSetting();
 		simon_setting.sound_on = false;
+		simon_setting.random = get_setting().random;
 		save_setting(simon_setting);
 		let message = "The game can get much harder with sounds off!"
 		if ($(".alert p").text() != message) {
@@ -174,6 +175,7 @@ function sounds() {
 		$("#sound-setting p:nth-child(2)").html("Sounds on");
 		const simon_setting = new CreateGameSetting();
 		simon_setting.sound_on = true;
+		simon_setting.random = get_setting().random;
 		save_setting(simon_setting);
 	}
 }
@@ -192,12 +194,14 @@ function sequence_setting() {
 		$("#sequence-setting p:nth-child(2)").html("All random off");
 		const simon_setting = new CreateGameSetting();
 		simon_setting.random = false;
+		simon_setting.sound_on = get_setting().sound_on;
 		save_setting(simon_setting);
 	} else {
 		$("#sequence-setting i").removeClass("text-shadow-red").addClass("text-shadow-green");
 		$("#sequence-setting p:nth-child(2)").html("All random on !");
 		const simon_setting = new CreateGameSetting();
 		simon_setting.random = true;
+		simon_setting.sound_on = get_setting().sound_on;
 		save_setting(simon_setting);
 		let message = "The game can get much harder with all sequences randomized!"
 		if ($(".alert p").text() != message) {
