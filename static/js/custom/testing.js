@@ -26,8 +26,8 @@ function random_sequence() {
 
 function test_data() {
 	let save = {
-		"correct": 10,
-		"difficulty": 20,
+		"correct": 0,
+		"difficulty": 1,
 		"finished_game": false,
 		"id": 0,
 		"name": "Miro",
@@ -40,8 +40,8 @@ function test_data() {
 		"wrong": 0,
 	}
 	save_data([save]);
-	game_end_template(save)
-	//load_game(0);
+	//game_end_template(save)
+	load_game(0);
 }
 
 function game_overlay() {
@@ -63,9 +63,9 @@ function no_feature() {
 						<i class="fas fa-times fa-4x"></i>
 					</button>							
 				</div>
-				<hr>
+				<hr class="box-shadow-green">
 				<h3 class="text-center">This feature is not implemented yet!</h3>	
-				<hr>
+				<hr class="box-shadow-green">
 			</div>
 		</div>
 	`)

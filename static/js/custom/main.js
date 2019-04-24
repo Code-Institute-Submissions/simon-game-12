@@ -16,8 +16,8 @@ $(document).ready(function () {
 	$("#load-game-menu").click(function () {
 		return load_game_menu()
 	});
-	$("#statistics").click(function () {
-		return statistics()
+	$("#statistics-menu").click(function () {
+		return statistics_menu()
 	});
 	$("#settings").click(function () {
 		return settings()

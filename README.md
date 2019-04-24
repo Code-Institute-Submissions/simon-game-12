@@ -24,6 +24,7 @@
 		- [0.5](#05)
 		- [0.6](#06)
 		- [0.7](#07)
+		- [0.8](#08)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -103,6 +104,7 @@ Something
 - sound on/off  
 - limited tries
 - statistics
+  - add more colors to statistisc modal depends on the score. Also `sort()` the results by the score
 - different themes
 - let user to delete profiles
 - when loading the game the sequence is played again and this can be used to cheat the game. However, I did not want skip this as after a while user will probably forget the sequence I left it like that.
@@ -253,6 +255,12 @@ The project has been tested on commonly used devices and browsers such as:
   - [templates.js](/static/js/custom/teplates.js)
     - fixed issue with incorect injectiing profile id in `profiles_template()` template
     - added `game_end_template()`
+
+### 0.8
+
+- **Changelog**
+  - finished statistics page
+
 
 [**To top**](#Table-of-Contents)
 

@@ -52,6 +52,18 @@ General
 	text-shadow: var(--yellow-shadow)
 }
 
+.box-shadow-green {
+	box-shadow: var(--green-shadow)
+}
+
+.box-shadow-red {
+	box-shadow: var(--red-shadow)
+}
+
+.box-shadow-yellow {
+	box-shadow: var(--yellow-shadow)
+}
+
 body {
 	font-family: "Maven Pro", sans-serif;
 }
@@ -78,10 +90,6 @@ form {
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.9);
 	font-weight: 700;
-}
-
-hr {
-	box-shadow: var(--green-shadow)
 }
 
 /* 
@@ -196,6 +204,7 @@ Game Overlay and Game Menu
 
 #game-overlay,
 #load-game,
+#statistics-modal,
 #statistics-modal  {
 	display: none;
 	z-index: 4;
@@ -299,4 +308,8 @@ Load / statistics-modal game
 
 .table thead th {
 	border-top: 0;	
+}
+
+.table td {
+	padding-top: 1.7rem;
 }

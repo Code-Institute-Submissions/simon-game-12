@@ -60,6 +60,7 @@
 
 		<!-- Main Content -->
 		<main>
+			<!-- Main Game Container -->
 			<section class="py-5 container-fluid">
 				<div class="row justify-content-center">
 					<!-- Game container -->
@@ -73,7 +74,7 @@
 								<h2 class="text-center">
 									<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>	
 								</h2>
-								<hr class="my-2">
+								<hr class="box-shadow-green my-2">
 								<div class="text-center">
 									<button class="btn bg-transparent">
 										<i class="fas fa-question fa-2x"></i>
@@ -103,7 +104,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div id="statistics" class="cursor col-6 d-flex justify-content-center">
+								<div id="statistics-menu" class="cursor col-6 d-flex justify-content-center">
 									<div class="pb-5 align-self-end">	
 										<i class="fas fa-chart-area fa-3x"></i>
 									</div>
@@ -118,6 +119,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- Load Game -->
 			<section class="container">				
 				<div id="load-game">
 					<div class="row justify-content-end pr-4 pt-4">
@@ -127,25 +129,37 @@
 					</div>
 					<div class="row">
 						<div class="pt-5 col-12 wrapper">							
-			
+							
 							<div id="profiles" class="row justify-content-center"></div>
 
 							<div class="row justify-content-center">
 								<div class="col-md-8">
-									<hr class="my-5">
+									<hr class="box-shadow-green my-5">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="container">
-				<!-- Statistics -->
+			<!-- Statistics -->
+			<section class="container">				
 				<div id="statistics-modal">
 					<div class="row justify-content-end pr-4 pt-4">
 						<button onclick="return hide_overlay('#statistics-modal')" class="btn bg-transparent">
 							<i class="fas fa-times fa-4x"></i>
 						</button>	
+					</div>
+					<div class="row">
+						<div class="pt-5 col-12 wrapper">							
+							
+							<div id="statistics" class="row justify-content-center"></div>
+
+							<div class="row justify-content-center">
+								<div class="col-md-8">
+									<hr class="box-shadow-yellow my-5">
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>		

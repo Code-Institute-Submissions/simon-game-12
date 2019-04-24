@@ -137,7 +137,7 @@ function load_game(id) {
 Show statistics for existing profiles
 */
 
-function statistics() {
+function statistics_menu() {
 	flash_play(2)
 	$("#game-centre div").fadeOut(1000);
 	let data = load_data()
@@ -145,10 +145,10 @@ function statistics() {
 		let statistics_data = finished_games(data);
 		if (statistics_data.length > 0) {
 			$("main .container-fluid").fadeOut(500);
-			profiles_template(statistics_data)
+			statistics_template(statistics_data)
 			setTimeout(() => {
 				simon_layout();
-				$("#load-game").slideDown(500);
+				$("#statistics-modal").slideDown(500);
 			}, 700)
 
 		} else {

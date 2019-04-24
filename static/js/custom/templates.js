@@ -17,7 +17,7 @@ function game_menu() {
 			</div>
 		</div>
 		<div class="row">
-			<div id="statistics" class="col-6 d-flex justify-content-center">
+			<div id="statistics-menu" class="col-6 d-flex justify-content-center">
 				<div class="pb-5 align-self-end">	
 					<i class="fas fa-chart-area fa-3x"></i>
 				</div>
@@ -43,7 +43,7 @@ function game_centre_h2() {
 			<h2 class="text-center">
 				<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>		
 			</h2>
-			<hr class="my-2">
+			<hr class="box-shadow-green my-2">
 			<div class="text-center">
 				<button class="btn bg-transparent">
 					<i class="fas fa-question fa-2x"></i>
@@ -124,7 +124,7 @@ function no_profiles() {
 					</button>							
 				</div>
 				<h3 class="text-center">No profiles found!</h3>	
-				<hr>
+				<hr class="box-shadow-green">
 				<div class="row justify-content-center">
 					<h4 class="text-center"> Create one now? </h4>
 				</div>
@@ -178,9 +178,55 @@ function profiles_template(profiles) {
 }
 
 /* 
-No statistics found
+Statistics
 */
 
+// Statistics template
+function statistics_template(profiles) {	
+	$("#statistics").html(`
+		<div class="col-md-8">
+			<div class="table-responsive">
+				<table class="table text-center text-light" width="100%" cellspacing="0">
+					<thead>
+						<tr class="text-center">
+							<th class="pb-5">Profile</th>	 	
+							<th class="pb-5">Score</th>
+							<th class="pb-5">Difficulty</th>
+							<th class="pb-5">Correct / Incorrect</th>
+						</tr>
+					</thead>
+					
+					
+				</table>
+			</div>
+		</div>
+	`);
+	for (let i = 0; i < profiles.length; i++) {
+		let difficulty_name = function () {
+			if (profiles[i].difficulty == 10) {
+				return "Normal";
+			} else if (profiles[i].difficulty == 15) {
+				return "Medium";
+			} else if (profiles[i].difficulty == 1) {
+				return "Test";
+			} else {
+				return "Hard";
+			}
+		};
+		$("#statistics .table").append(`
+			<tbody>
+				<tr>
+					<td>${profiles[i].name}</td>
+					<td>${calculate_score(profiles[i])}</td>
+					<td>${difficulty_name()}</td>
+					<td>${profiles[i].correct} / ${profiles[i].wrong}</td>
+				</tr>
+			</tbody>
+		`)
+	}
+}
+
+// No statistics found
 function no_statistics() {
 	$("#game-overlay").html(`
 		<div class="wrapper row justify-content-center">
@@ -191,7 +237,7 @@ function no_statistics() {
 					</button>							
 				</div>
 				<h3 class="text-center">You did not finish a game yet!</h3>	
-				<hr>
+				<hr class="box-shadow-green">
 				<div class="row justify-content-center">
 					<h4 class="text-center"> Play one now? </h4>
 				</div>
@@ -249,7 +295,7 @@ function game_end_template(profile) {
 				<div class="row justify-content-center">				
 					<div class="col-12">
 						<h2 class="text-shadow-green">Congratulations!</h2>
-						<hr>
+						<hr class="box-shadow-green">
 						<p class="lead py-2 text-light">You just finished the the game on <br>
 							<span class="${difficulty_name()[0]}">${difficulty_name()[1]}</span> <br>
 							with score of <span class="${score_text_shadow}">${score}</span> 
@@ -257,10 +303,10 @@ function game_end_template(profile) {
 						<p class="lead text-light ${score_text_shadow}">${message}</p> 
 					</div>	
 				</div>
-				<hr>
+				<hr class="box-shadow-green">
 				<div class="row justify-content-center">
 					<div class="pt-2">	
-						<button onclick="return statistics()" class="btn bg-transparent"><i class="fas fa-chart-area fa-2x"></i></button>
+						<button onclick="return statistics_menu()" class="btn bg-transparent"><i class="fas fa-chart-area fa-2x"></i></button>
 					</div>
 					<div class="pt-2">	
 						<button onclick="return new_game()" class="btn bg-transparent"><i class="fas fa-gamepad fa-2x"></i></button>
