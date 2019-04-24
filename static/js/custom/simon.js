@@ -205,9 +205,6 @@ function game_round(game_save) {
 			add_click_events();
 			hide_menu();
 		}, delay);
-
-		console.log(game_save.sequence)
-		console.log(game_save.correct)
 		return game_save;
 	}, 1500);	
 }
