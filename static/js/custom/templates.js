@@ -151,6 +151,7 @@ function profiles_template(profiles) {
 							<th class="pb-5">Profile</th>					
 							<th class="pb-5">Progress</th>
 							<th class="pb-5">Load</th>
+							<th class="pb-5">Delete</th>
 						</tr>
 					</thead>
 					
@@ -174,6 +175,9 @@ function profiles_template(profiles) {
 					<td>${profiles[i].round} / ${difficulty()}</td>
 					<td>
 						<button onclick="load_game(${profiles[i].id})" class="btn bg-transparent" type="button"><i class="fas fa-gamepad fa-2x"></i></button>
+					</td>
+					<td>
+						<button onclick="delete_profile(${profiles[i].id})" class="btn bg-transparent" type="button"><i class="fas fa-trash-alt fa-2x"></i></button>
 					</td>
 				</tr>
 			</tbody>

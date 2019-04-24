@@ -26,6 +26,7 @@
 		- [0.7](#07)
 		- [0.8](#08)
 		- [0.9](#09)
+		- [1.0](#10)
 	- [**Deployment**](#deployment)
 	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
@@ -273,7 +274,12 @@ The project has been tested on commonly used devices and browsers such as:
   - added functionality for user to be able to play with all sequences randomized
   - [index.html](/index.html)
     - finished settings modal
+  - removed links from `nav` as they are not need it for this project
 
+### 1.0
+
+- **Changelog**
+  - added functionality for user to be able to delete a profile
 
 [**To top**](#Table-of-Contents)
 

@@ -26,6 +26,7 @@ function random_sequence() {
 function test_data() {
 	let save = {
 		"correct": 0,
+		"visibility": true,
 		"difficulty": 1,
 		"finished_game": false,
 		"id": 0,

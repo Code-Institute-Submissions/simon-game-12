@@ -27,6 +27,7 @@ Construct a game save
 
 function SimonSave(params) {
 	this.id = params.id;
+	this.visibility = true;
 	this.name = params.name;
 	this.difficulty = parse_difficulty(params.difficulty);	
 	this.org_sequence = [random_ele()];
@@ -77,7 +78,7 @@ function games_in_progress(saves) {
 	const games_in_progress = [];
 	if (saves) {
 		for (let i = 0; i < saves.length; i++) {
-			if (saves[i].finished_game == false) {
+			if (saves[i].finished_game == false && saves[i].visibility == true) {
 				games_in_progress.push(saves[i])
 			}
 
@@ -92,7 +93,7 @@ function finished_games(saves) {
 	const finished_games = [];
 	if (saves) {
 		for (let i = 0; i < saves.length; i++) {
-			if (saves[i].finished_game == true) {
+			if (saves[i].finished_game == true && saves[i].visibility == true) {
 				finished_games.push(saves[i])
 			}
 
@@ -122,6 +123,23 @@ function update_profile(index, data) {
 	save_data(profiles)
 }
 
+
+/* 
+Delete profile
+*/
+
+function delete_profile(id) {
+	let profile = get_profile(id);
+	if (profile) {
+		profile.visibility = false;
+		update_profile(id, profile);
+		js_alerts("text-shadow-green", "Profile deleted!");
+		return hide_overlay('#load-game');
+	} else {
+		js_alerts("text-shadow-red", "Unable to delete profile!");
+		return false
+	}
+}
 
 /* 
 Add Game setting by default
