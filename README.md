@@ -111,12 +111,16 @@ Something
 - when loading the game the sequence is played again and this can be used to cheat the game. However, I did not want skip this as after a while user will probably forget the sequence I left it like that.
 - limit sequence replays
   - did not add it as you can play the sequence when game is loaded so it can be cheated anyway
+- game settings should not be global and I should hook the setting to each individual profile. This way the user can get scored based on the setting
 
 ### What could be done better
 
 - error hadling
   - right none minimum to none. Also not enough feedback to user if something goes wrong
 - the whole code was tested manualy. More automated tests
+- score system is very basic
+- load game should show (as soon as implemented) what setting the user plays on
+
 
 [**To top**](#Table-of-Contents)
 

@@ -96,6 +96,7 @@ function new_game_template() {
 					<option selected="true" value="normal">Normal (10)</option>
 					<option value="medium">Medium (15)</option>
 					<option value="hard">Hard (20)</option>
+					<option value="forever">Never ends</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -159,11 +160,18 @@ function profiles_template(profiles) {
 		</div>
 	`);
 	for (let i = 0; i < profiles.length; i++) {
+		let difficulty = function() {
+			if (profiles[i].difficulty == "forever") {
+				return "Never ends";
+			} else {
+				return profiles[i].difficulty;
+			}
+		}
 		$("#profiles .table").append(`
 			<tbody>
 				<tr>
 					<td>${profiles[i].name}</td>
-					<td>${profiles[i].round} / ${profiles[i].difficulty}</td>
+					<td>${profiles[i].round} / ${difficulty()}</td>
 					<td>
 						<button onclick="load_game(${profiles[i].id})" class="btn bg-transparent" type="button"><i class="fas fa-gamepad fa-2x"></i></button>
 					</td>

@@ -283,14 +283,22 @@ function check_answer(btn_id) {
 			}
 			profile.sequence.shift()
 			if (profile.sequence.length === 0) {				
-				if (!check_game_end(profile_index, profile)) {
+				if (profile.difficulty != "forever") {
+					if (!check_game_end(profile_index, profile)) {
+						profile.round += 1;
+						create_sequence(profile_index, profile);
+						setTimeout(() => {
+							return game_round(profile);
+						}, 300);
+					} else {
+						return
+					}
+				} else {
 					profile.round += 1;
 					create_sequence(profile_index, profile);
 					setTimeout(() => {
 						return game_round(profile);
 					}, 300);
-				}	else {
-					return 
 				}			
 			}	
 			update_profile(profile_index, profile)

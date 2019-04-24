@@ -46,8 +46,8 @@ function parse_difficulty(difficulty) {
 		return 10
 	} else if (difficulty == "medium") {
 		return 15
-	} else if (difficulty == "test") {
-		return 1
+	} else if (difficulty == "forever") {
+		return "forever"
 	} else {
 		return 20
 	}
