@@ -7,7 +7,6 @@
 	- [**CI Brief**](#ci-brief)
 	- [**UX**](#ux)
 		- [General Design](#general-design)
-		- [Requirements](#requirements)
 	- [**Features**](#features)
 		- [Existing Features](#existing-features)
 		- [Features left to implement](#features-left-to-implement)
@@ -76,18 +75,11 @@ Design | Importance
 --- | ---
 Functionality | 6
 User experiences | 6
-HTML / CSS | 3
+HTML / CSS | 5
 
 **The project general idea is for entertainment purpose only.**
 
 - create an application which feels good for the user
-
-### Requirements
-
-- **Welcome page**
-  - Something
-- **Statistics page**
-  - Something
 
 [**To top**](#Table-of-Contents)
 
@@ -95,20 +87,36 @@ HTML / CSS | 3
 
 ## **Features**
 
-Something
-
 ### Existing Features
 
-- Something
+- **Game menu**
+  - `new_game()`
+    - allow user to create new profile
+      - user can choose from 4 different difficulties ("Normal", "Medium", "Hard" and "Never ends")
+  - `load_game_menu()`
+    - allow user to load existing profile
+    - allow user to delete existing profile
+  - `statistics_menu()`
+    - allow user to view statistics for finished games
+  - `settings()`
+    - allow user to play the game without sounds which makes the game harder
+    - allow user to play with every sequence randomized which makes the game harder
+- **Simon Game**
+  - depends on user input the game will create a sequence which user must much exactly
+  - if the user is able to match the sequence next round will begin
+  - as soon as user match the last sequence he is presented with end game overlay with score screen as well as he has the option to view statistics page or start a new game
+- **User**
+  - can create unlimeted amount of profiles  
+  *Only limitation is minimum 4 characters for profile name*
+
+**Please see [**Changelog and Fixes**](#changelog-and-fixes) for full details of the changes and current stage of the application.**
 
 ### Features left to implement
 
-- sound on/off  
 - limited tries
 - statistics
   - add more colors to statistisc modal depends on the score. Also `sort()` the results by the score
 - different themes
-- let user to delete profiles
 - when loading the game the sequence is played again and this can be used to cheat the game. However, I did not want skip this as after a while user will probably forget the sequence I left it like that.
 - limit sequence replays
   - did not add it as you can play the sequence when game is loaded so it can be cheated anyway
@@ -118,9 +126,11 @@ Something
 
 - error hadling
   - right none minimum to none. Also not enough feedback to user if something goes wrong
-- the whole code was tested manualy. More automated tests
+- the whole JS was tested manualy. More automated tests
 - score system is very basic
 - load game should show (as soon as implemented) what setting the user plays on
+- README.md
+  - unfortunately the README could be writen in more details
 
 
 [**To top**](#Table-of-Contents)
