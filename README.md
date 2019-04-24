@@ -105,7 +105,7 @@ HTML / CSS | 5
   - if the user is able to match the sequence next round will begin
   - as soon as user match the last sequence he is presented with end game overlay with score screen as well as he has the option to view statistics page or start a new game
 - **User**
-  - can create unlimeted amount of profiles  
+  - can create unlimited amount of profiles  
   *Only limitation is minimum 4 characters for profile name*
 
 **Please see [**Changelog and Fixes**](#changelog-and-fixes) for full details of the changes and current stage of the application.**
@@ -113,27 +113,27 @@ HTML / CSS | 5
 ### Features left to implement
 
 - limited tries
-  - wanted to add limited tries depends on the dificulty
+  - wanted to add limited tries depends on the difficulty
 - statistics
-  - add more colors to statistisc modal depends on the score. Also `sort()` the results by the score
+  - add more colours to statistics modal depends on the score. Also `sort()` the results by the score
 - different themes
   - old style design will be added in future
 - when loading the game the sequence is played again and this can be used to cheat the game. 
-  - However, I did not want skip this as after a while user will probably forget the sequence anjd therefore I left it like that.
+  - However, I did not want skip this as after a while user will probably forget the sequence and therefore I left it like that.
 - limit sequence replays
   - did not add it as user can play the sequence when game is loaded so it can be cheated anyway
-- game settings should not be global and I should hook the setting to each individual profile. This way the user can get scored based on the setting
+- game settings should not be global, and I should hook the setting to each individual profile. This way the user can get scored based on the setting
+- game rules has been removed from the due to the time but will bring it back
 
 ### What could be done better
 
-- error hadling
+- error handling
   - right none minimum to none. Also not enough feedback to user if something goes wrong
-- the whole JS was tested manualytherefore more automated tests
+- the whole JS was tested manual therefore more automated tests
 - score system is very basic
 - load game should show (as soon as implemented) what setting the user plays on
 - `README.md`
-  - unfortunately the README could be writen in more details due to the time left for the project
-
+  - unfortunately the README could be written in more details due to the time left for the project
 
 [**To top**](#Table-of-Contents)
 
@@ -217,7 +217,7 @@ The project has been tested on commonly used devices and browsers such as:
   - [index.html](/index.html)
     - added `#game-overlay` section for user menu
 - **Fixes**
-  - `simon_layout()` is not executed every time the user change the size of the screen to prevent unxpected layout *For example when user change to landscape on mobile devices*
+  - `simon_layout()` is not executed every time the user change the size of the screen to prevent unexpected layout *For example when user change to landscape on mobile devices*
 
 ### 0.2
 
@@ -261,7 +261,7 @@ The project has been tested on commonly used devices and browsers such as:
 - **Fixes**
   - [simon.js](/static/js/custom/simon.js)
     - fixed issue in `game_round()` when sounds and animations will play all ate once (added +1000 `delay`  for every element in sequence)
-    - added transparent overlay while playing sequence to preven user to click on elements before the sequence finish
+    - added transparent overlay while playing sequence to prevent user to click on elements before the sequence finish
 
 ### 0.6
 
@@ -286,7 +286,7 @@ The project has been tested on commonly used devices and browsers such as:
     - added fundamentals for Statistics menu
 - **Fixes**
   - [templates.js](/static/js/custom/teplates.js)
-    - fixed issue with incorect injectiing profile id in `profiles_template()` template
+    - fixed issue with incorrect injecting profile id in `profiles_template()` template
     - added `game_end_template()`
 
 ### 0.8
@@ -337,3 +337,4 @@ The project has been deployed to GitHub Pages  - [Simon Game](https://miroslavsv
   All of you gave me constructive feedback which made the project better 😊
 
 [**To top**](#Table-of-Contents)
+
