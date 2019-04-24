@@ -5,7 +5,7 @@ Create game data
 function create_data(params) {
 	if (load_data()) {
 		let simon_saves = load_data();
-		params.id = simon_saves.length
+		params.id = simon_saves.length;
 		const simon_save = new SimonSave(params);
 		simon_save.sequence = simon_save.org_sequence;
 		simon_saves.push(simon_save);
@@ -17,8 +17,8 @@ function create_data(params) {
 		let simon_saves = [simon_save];
 		save_data(simon_saves);
 		return simon_save;
-	}	
-	
+	}
+
 }
 
 /* 
@@ -29,7 +29,7 @@ function SimonSave(params) {
 	this.id = params.id;
 	this.visibility = true;
 	this.name = params.name;
-	this.difficulty = parse_difficulty(params.difficulty);	
+	this.difficulty = parse_difficulty(params.difficulty);
 	this.org_sequence = [random_ele()];
 	this.round = 1;
 	this.correct = 0;
@@ -44,13 +44,13 @@ Return difficulty base on user input
 
 function parse_difficulty(difficulty) {
 	if (difficulty == "normal") {
-		return 10
+		return 10;
 	} else if (difficulty == "medium") {
-		return 15
+		return 15;
 	} else if (difficulty == "forever") {
-		return "forever"
+		return "forever";
 	} else {
-		return 20
+		return 20;
 	}
 }
 
@@ -79,7 +79,7 @@ function games_in_progress(saves) {
 	if (saves) {
 		for (let i = 0; i < saves.length; i++) {
 			if (saves[i].finished_game == false && saves[i].visibility == true) {
-				games_in_progress.push(saves[i])
+				games_in_progress.push(saves[i]);
 			}
 
 		}
@@ -94,7 +94,7 @@ function finished_games(saves) {
 	if (saves) {
 		for (let i = 0; i < saves.length; i++) {
 			if (saves[i].finished_game == true && saves[i].visibility == true) {
-				finished_games.push(saves[i])
+				finished_games.push(saves[i]);
 			}
 
 		}
@@ -105,11 +105,11 @@ function finished_games(saves) {
 // Load save 
 
 function get_profile(profile_index) {
-	let data = load_data()
+	let data = load_data();
 	if (data[profile_index]) {
-		return data[profile_index]
+		return data[profile_index];
 	} else {
-		return false
+		return false;
 	}
 }
 
@@ -120,7 +120,7 @@ Update profile
 function update_profile(index, data) {
 	let profiles = load_data();
 	profiles[index] = data;
-	save_data(profiles)
+	save_data(profiles);
 }
 
 
@@ -137,7 +137,7 @@ function delete_profile(id) {
 		return hide_overlay('#load-game');
 	} else {
 		js_alerts("text-shadow-red", "Unable to delete profile!");
-		return false
+		return false;
 	}
 }
 
@@ -166,7 +166,7 @@ function create_game_setting() {
 			$("#sequence-setting i").removeClass("text-shadow-red").addClass("text-shadow-green");
 			$("#sequence-setting p:nth-child(2)").html("All random on !");
 		}
-	}	
+	}
 }
 
 /* 
@@ -203,5 +203,5 @@ Clear localStorage
 */
 
 function clear_ls() {
-	localStorage.clear()
+	localStorage.clear();
 }

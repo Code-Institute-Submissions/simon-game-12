@@ -4,21 +4,21 @@ Create random sequence for testing
 
 function random_sequence() {
 	$.when(hide_menu()).then(function () {
-		let how_many = Math.floor((Math.random() * 21) + 1)
-		$("#game-centre h2").html(how_many)
-		$("#profile-id").html(1)		
+		let how_many = Math.floor((Math.random() * 21) + 1);
+		$("#game-centre h2").html(how_many);
+		$("#profile-id").html(1);
 		var game_save = {
 			"org_sequence": [],
-			"difficulty" : "test"
-		}
+			"difficulty": "test"
+		};
 		var z = 0;
 		while (z < how_many) {
-			game_save.org_sequence.push(random_ele())
-			z += 1
+			game_save.org_sequence.push(random_ele());
+			z += 1;
 		}
-		game_save.sequence = game_save.org_sequence
-		clear_ls()
-		return game_round(game_save)
+		game_save.sequence = game_save.org_sequence;
+		clear_ls();
+		return game_round(game_save);
 	});
 }
 
@@ -37,9 +37,9 @@ function test_data() {
 		"sequence": [0],
 		"start_date": "2019-04-24T04:23:49.645Z",
 		"wrong": 0,
-	}
+	};
 	save_data([save]);
-	game_end_template(save)
+	game_end_template(save);
 	load_game(0);
 }
 
@@ -67,7 +67,7 @@ function no_feature() {
 				<hr class="box-shadow-green">
 			</div>
 		</div>
-	`)
-	simon_layout()
-	$("#game-overlay").fadeIn(500)
+	`);
+	simon_layout();
+	$("#game-overlay").fadeIn(500);
 }

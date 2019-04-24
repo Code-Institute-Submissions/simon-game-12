@@ -29,7 +29,7 @@ function game_menu() {
 			</div>
 		</div>	
 	`
-	)
+	);
 	simon_layout();
 }
 
@@ -52,7 +52,7 @@ function game_centre_h2() {
 		</div>
 	`)
 		.fadeIn(500);
-	return false
+	return false;
 }
 
 function round_number(profile) {
@@ -61,7 +61,7 @@ function round_number(profile) {
 			<h2 id="round-number">${profile.round}</h2>
 		</div>
 	`).fadeIn(500);
-	return false
+	return false;
 }
 
 function music_icon() {
@@ -71,7 +71,7 @@ function music_icon() {
 		</div>
 	`)
 		.fadeIn(500);
-	return false
+	return false;
 }
 
 
@@ -104,7 +104,7 @@ function new_game_template() {
 			</div>
 		</div>
 	</form>
-	`
+	`;
 }
 
 /* 
@@ -132,9 +132,9 @@ function no_profiles() {
 				</div>
 			</div>
 		</div>
-	`)
-	simon_layout()
-	$("#game-overlay").fadeIn(500)
+	`);
+	simon_layout();
+	$("#game-overlay").fadeIn(500);
 }
 
 /* 
@@ -161,13 +161,13 @@ function profiles_template(profiles) {
 		</div>
 	`);
 	for (let i = 0; i < profiles.length; i++) {
-		let difficulty = function() {
+		let difficulty = function () {
 			if (profiles[i].difficulty == "forever") {
 				return "Never ends";
 			} else {
 				return profiles[i].difficulty;
 			}
-		}
+		};
 		$("#profiles .table").append(`
 			<tbody>
 				<tr>
@@ -181,7 +181,7 @@ function profiles_template(profiles) {
 					</td>
 				</tr>
 			</tbody>
-		`)		
+		`);
 	}
 }
 
@@ -190,7 +190,7 @@ Statistics
 */
 
 // Statistics template
-function statistics_template(profiles) {	
+function statistics_template(profiles) {
 	$("#statistics").html(`
 		<div class="col-md-8">
 			<div class="table-responsive">
@@ -230,7 +230,7 @@ function statistics_template(profiles) {
 					<td>${profiles[i].correct} / ${profiles[i].wrong}</td>
 				</tr>
 			</tbody>
-		`)
+		`);
 	}
 }
 
@@ -267,35 +267,35 @@ Game end
 
 function game_end_template(profile) {
 	let difficulty = profile.difficulty;
-	let difficulty_name = function() {
+	let difficulty_name = function () {
 		if (difficulty == 10) {
-			return ["text-shadow-green", "Normal"]
+			return ["text-shadow-green", "Normal"];
 		} else if (difficulty == 15) {
-			return ["text-shadow-yellow", "Medium"]
+			return ["text-shadow-yellow", "Medium"];
 		} else if (difficulty == 1) {
-			return "Test"
+			return "Test";
 		} else {
-			text_shadow = "text-shadow-red"
-			return ["text-shadow-red", "Hard"]
+			text_shadow = "text-shadow-red";
+			return ["text-shadow-red", "Hard"];
 		}
-	};	
+	};
 	var score_text_shadow = "text-shadow-green";
 	let score = calculate_score(profile);
-	var message = ""
+	var message = "";
 	if (score == difficulty) {
-		message = `which is amazing <i class="far fa-grin-hearts text-success"></i>`
+		message = `which is amazing <i class="far fa-grin-hearts text-success"></i>`;
 	}
 	else if (score > parseInt(difficulty / 2)) {
 		message = `Which is Great <i class="far fa-smile-beam text-success"></i>`;
 	} else if (score == parseInt(difficulty / 2)) {
-		message =  `Which is Good <i class="far fa-smile-beam text-success"></i>`;
+		message = `Which is Good <i class="far fa-smile-beam text-success"></i>`;
 	} else if (score > parseInt(difficulty / 2 / 2)) {
 		score_text_shadow = "text-shadow-yellow";
 		message = `Which is So so <i class="far fa-grin text-warning"></i>`;
 
 	} else {
 		score_text_shadow = "text-shadow-red";
-		message =  `Which is BAD <i class="fas fa-poo fa-lg text-danger"></i>`;
+		message = `Which is BAD <i class="fas fa-poo fa-lg text-danger"></i>`;
 	}
 	$("#game-overlay").html(`
 		<div class="row justify-content-center">
@@ -322,7 +322,7 @@ function game_end_template(profile) {
 				</div>
 			</div>
 		</div>
-	`)
-	simon_layout()
-	$("#game-overlay").fadeIn(500)
+	`);
+	simon_layout();
+	$("#game-overlay").fadeIn(500);
 }
