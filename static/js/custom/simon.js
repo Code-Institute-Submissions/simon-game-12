@@ -102,16 +102,22 @@ Load game data from localStorage
 function load_game_menu() {
 	flash_play(1)
 	$("#game-centre div").fadeOut(1000);		
+	let data = load_data()		
 	if (load_data()) {
-		$("main .container-fluid").fadeOut(500);
-		profiles_template(load_data())
-		setTimeout(() => {
-			simon_layout();
-			$("#load-game").slideDown(500);
-		}, 700)
-		
+		let games = games_in_progress(data);
+		if (games.length > 0) {
+			$("main .container-fluid").fadeOut(500);
+			profiles_template(games)
+			setTimeout(() => {
+				simon_layout();
+				$("#load-game").slideDown(500);
+			}, 700)
+
+		} else {
+			return no_profiles();
+		}		
 	} else {
-		return no_profiles()
+		return no_profiles();
 	}
 }
 
@@ -132,16 +138,24 @@ Show statistics for existing profiles
 */
 
 function statistics() {
-	flash_play(2)
-	$("main .container-fluid").fadeOut(500);
+	flash_play(1)
+	$("#game-centre div").fadeOut(1000);
+	let data = load_data()
 	if (load_data()) {
-		setTimeout(() => {
-			simon_layout();
-			$("#statistics-modal").slideDown(500);
-		}, 700)
+		let statistics_data = finished_games(data);
+		if (statistics_data.length > 0) {
+			$("main .container-fluid").fadeOut(500);
+			profiles_template(statistics_data)
+			setTimeout(() => {
+				simon_layout();
+				$("#load-game").slideDown(500);
+			}, 700)
 
+		} else {
+			return no_profiles();
+		}
 	} else {
-		return no_profiles()
+		return no_profiles();
 	}
 }
 
@@ -232,13 +246,16 @@ function check_answer(btn_id) {
 			}
 			profile.sequence.shift()
 			if (profile.sequence.length === 0) {
-				check_game_end(profile);
-				profile.round += 1;
 				
-				create_sequence(profile_index, profile);
-				setTimeout(() => {
-					return game_round(profile);
-				}, 300);				
+				if (!check_game_end(profile_index, profile)) {
+					profile.round += 1;
+					create_sequence(profile_index, profile);
+					setTimeout(() => {
+						return game_round(profile);
+					}, 300);
+				}	else {
+					return 
+				}			
 			}
 			profile.correct += 1		
 			update_profile(profile_index, profile)
@@ -266,7 +283,7 @@ function check_answer(btn_id) {
 End the game
 */
 
-function check_game_end(profile) {
+function check_game_end(profile_index, profile) {
 	let difficulty = 0
 	if (profile.difficulty === "normal") {
 		difficulty = 10
@@ -277,12 +294,14 @@ function check_game_end(profile) {
 	} else {
 		difficulty = 20
 	}
-	if (difficulty === profile.round) {
-		console.log("END")
-		$("#game-centre h2").html(`
-				<p class="lead ">END!</p>
-			`)
+	if (difficulty === profile.round) {		
 		$("#game-overlay").empty().fadeIn();
+		$("#game-overlay").css("background", "transparent");
+		$("#game-overlay").fadeIn();
+		profile.correct += 1;
+		profile.finished_game = true;
+		update_profile(profile_index, profile);
+		return true;
 	} 
 }
 

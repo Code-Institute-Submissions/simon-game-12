@@ -24,6 +24,25 @@ function random_sequence() {
 }
 
 
+function test_data() {
+	let save = {
+		"correct": 0,
+		"difficulty": "test",
+		"finished_game": false,
+		"id": 0,
+		"name": "Miro",
+		"org_sequence": [0],
+		"random": "off",
+		"round": 1,
+		"sequence": [0],
+		"sound_on": "on",
+		"start_date": "2019-04-24T04:23:49.645Z",
+		"wrong": 0,
+	}
+	save_data([save]);
+	load_game(0);
+}
+
 /* 
 Feature not implemented yet template
 */

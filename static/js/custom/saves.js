@@ -28,10 +28,7 @@ Construct a game save
 function SimonSave(params) {
 	this.id = params.id;
 	this.name = params.name;
-
 	this.difficulty = params.difficulty;
-	//this.difficulty = "test";
-
 	this.sound_on = params.sound_on;
 	this.random = "off";
 	this.org_sequence = [random_ele()];
@@ -58,6 +55,36 @@ function load_data() {
 	const get_saves = localStorage.getItem("simon_saves");
 	const saves = JSON.parse(get_saves);
 	return saves;
+}
+
+// Load all games in progress
+
+function games_in_progress(saves) {
+	const games_in_progress = [];
+	if (saves) {
+		for (let i = 0; i < saves.length; i++) {
+			if (saves[i].finished_game == false) {
+				games_in_progress.push(saves[i])
+			}
+
+		}
+	}
+	return games_in_progress;
+}
+
+// Load all finished games
+
+function finished_games(saves) {
+	const finished_games = [];
+	if (saves) {
+		for (let i = 0; i < saves.length; i++) {
+			if (saves[i].finished_game == true) {
+				finished_games.push(saves[i])
+			}
+
+		}
+	}
+	return finished_games;
 }
 
 // Load save 

@@ -248,6 +248,7 @@ The project has been tested on commonly used devices and browsers such as:
 - **Changelog**
   - [index.html](/index.html)
     - added functionality for user to be able to load a game in progress and continue where he finished
+    - added fundamentals for Statistics menu
 - **Fixes**
 
 [**To top**](#Table-of-Contents)
