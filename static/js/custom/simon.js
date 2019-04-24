@@ -6,6 +6,8 @@ function simon_layout() {
 	let container_width = $("#game-container").width();
 	$("#game-container").height(container_width);
 	$("#game-menu").height(container_width).width(container_width);
+	$("#game-settings-overlay").height(container_width).width(container_width);
+	$("#settings").height(container_width);	
 	$("#game-overlay").height(container_width).width(container_width);
 	$("#game-container .col-6").height(container_width / 2);
 	$("#game-overlay>.row").height(container_width);	
@@ -24,22 +26,9 @@ Game menu
 */
 
 function new_game() {
-	flash_play(0)
-	$("#game-centre div").fadeOut(500);
+	get_sound_setting(0)
+	$("#game-centre div").fadeOut();
 	$("#game-overlay").html(new_game_template()).fadeIn(500);
-	$("#game-overlay input[type=checkbox]").change(function () {
-		let checked = $(".form-check-input:checkbox:checked");
-		if (checked.length == 0) {
-			let display = $("#js-alerts").css("display")
-			if (display == "none") {
-				let message = "The game can get much harder with sounds off!"
-				if ($(".alert p").text() != message) {
-					js_alerts("text-shadow-red", message)
-				}				
-			}
-			
-		}
-	});
 }
 
 /* 
@@ -50,7 +39,6 @@ function create_game() {
 	$("#game-centre div").fadeIn(1000);
 	let name = $("#game-overlay input[name=name]").val().split()
 	let difficulty = $("#difficulty").val()
-	let sound_on = $(".form-check-input:checkbox").val()
 	//Check if form is valid
 	if (name[0].length <= 3) {
 		let message = "Profile name must be longer then 3 characters!"
@@ -70,7 +58,6 @@ function create_game() {
 			"id": 0,
 			"name": name[0],
 			"difficulty": difficulty,
-			"sound_on": sound_on,
 		}
 		const profile = create_data(params)
 		if (profile) {
@@ -100,8 +87,8 @@ Load game data from localStorage
 */
 
 function load_game_menu() {
-	flash_play(1)
-	$("#game-centre div").fadeOut(1000);		
+	get_sound_setting(1)
+	$("#game-centre div").fadeOut();		
 	let data = load_data()		
 	if (load_data()) {
 		let games = games_in_progress(data);
@@ -138,8 +125,8 @@ Show statistics for existing profiles
 */
 
 function statistics_menu() {
-	flash_play(2)
-	$("#game-centre div").fadeOut(1000);
+	get_sound_setting(2)
+	$("#game-centre div").fadeOut();
 	let data = load_data()
 	if (load_data()) {
 		let statistics_data = finished_games(data);
@@ -164,11 +151,60 @@ Game setting menu
 */
 
 function settings() {
-	flash_play(3)
-	$("#game-centre div").fadeOut(500);
-	$("#game-overlay").html(no_feature()).fadeIn(500);
+	$("#game-centre div").fadeOut();
+	get_sound_setting(3);
+	$("#game-settings-overlay").fadeIn(500);
+	simon_layout();	
 }
 
+function sounds() {
+	if ($("#sound-setting i").hasClass("text-shadow-green")) {
+		$("#sound-setting i").removeClass("text-shadow-green").addClass("text-shadow-red");
+		$("#sound-setting p:nth-child(2)").html("Sounds off !");
+		const simon_setting = new CreateGameSetting();
+		simon_setting.sound_on = false;
+		save_setting(simon_setting);
+		let message = "The game can get much harder with sounds off!"
+		if ($(".alert p").text() != message) {
+			js_alerts("text-shadow-red", message)
+		}
+
+	} else {
+		$("#sound-setting i").removeClass("text-shadow-red").addClass("text-shadow-green");
+		$("#sound-setting p:nth-child(2)").html("Sounds on");
+		const simon_setting = new CreateGameSetting();
+		simon_setting.sound_on = true;
+		save_setting(simon_setting);
+	}
+}
+
+function get_sound_setting(col) {
+	if (get_setting().sound_on) {
+		return flash_play(col);
+	} else {
+		return column_animation(col);
+	}
+}
+
+function sequence_setting() {
+	if ($("#sequence-setting i").hasClass("text-shadow-green")) {
+		$("#sequence-setting i").removeClass("text-shadow-green").addClass("text-shadow-red");
+		$("#sequence-setting p:nth-child(2)").html("All random off");
+		const simon_setting = new CreateGameSetting();
+		simon_setting.random = false;
+		save_setting(simon_setting);
+	} else {
+		$("#sequence-setting i").removeClass("text-shadow-red").addClass("text-shadow-green");
+		$("#sequence-setting p:nth-child(2)").html("All random on !");
+		const simon_setting = new CreateGameSetting();
+		simon_setting.random = true;
+		save_setting(simon_setting);
+		let message = "The game can get much harder with all sequences randomized!"
+		if ($(".alert p").text() != message) {
+			js_alerts("text-shadow-red", message)
+		}
+	}
+}
 
 
 /* 
@@ -196,7 +232,7 @@ function game_round(game_save) {
 		var delay = 1000;
 		for (let i = 0; i < sequence.length; i++) {
 			setTimeout(() => {
-				flash_play(sequence[i]);
+				get_sound_setting(sequence[i]);
 			}, delay);
 
 			delay += 1000
@@ -214,7 +250,7 @@ Create random sequence
 */
 
 function create_sequence(profile_index, profile) {
-	if (profile.random == "on") {
+	if (get_setting().random) {
 		profile.org_sequence = [];
 		var z = 0;
 		while (z < profile.round) {

@@ -87,7 +87,7 @@
 							<div id="game-col-3" class="col-6 cursor"></div>
 						</div>						
 						<!-- Game overlay -->
-						<div id="game-overlay" class="container text-center "></div>
+						<div id="game-overlay" class="container"></div>
 						
 						<!-- Game menu -->
 						<div id="game-menu" class="container text-center">
@@ -109,10 +109,39 @@
 										<i class="fas fa-chart-area fa-3x"></i>
 									</div>
 								</div>
-								<div id="settings" class="cursor col-6 d-flex justify-content-center">
+								<div id="settings-menu" class="cursor col-6 d-flex justify-content-center">
 									<div class="pb-5 align-self-end">	
 										<i class="fas fa-cogs fa-3x"></i>
 									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Game Settings overlay -->
+						<div id="game-settings-overlay" class="container">
+							<div id="settings" class="text-light row justify-content-center">
+								<div class="align-self-center">
+									<div class="row justify-content-end">
+										<button onclick="return hide_overlay('#game-settings-overlay')" class="btn bg-transparent">
+											<i class="fas fa-times fa-4x"></i>
+										</button>							
+									</div>
+									<hr class="box-shadow-green">
+									<div class="row justify-content-center text-center py-3">
+										<div id="sound-setting" class="col">
+											<p>
+												<i class="fas fa-headphones fa-4x text-shadow-green"></i> 
+											</p>
+											<p>Sounds on</p>
+										</div>
+										<div id="sequence-setting" class="col">
+											<p>
+												<i class="fas fa-random fa-4x text-shadow-red"></i> 
+											</p>
+											<p>All random off</p>
+										</div>
+									</div>	
+									<hr class="box-shadow-green">
 								</div>
 							</div>
 						</div>

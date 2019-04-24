@@ -9,7 +9,6 @@ function random_sequence() {
 		$("#profile-id").html(1)		
 		var game_save = {
 			"org_sequence": [],
-			"sound_on": "on",
 			"difficulty" : "test"
 		}
 		var z = 0;
@@ -35,17 +34,16 @@ function test_data() {
 		"random": "off",
 		"round": 1,
 		"sequence": [0],
-		"sound_on": "on",
 		"start_date": "2019-04-24T04:23:49.645Z",
 		"wrong": 0,
 	}
 	save_data([save]);
-	//game_end_template(save)
+	game_end_template(save)
 	load_game(0);
 }
 
 function game_overlay() {
-	$("#game-overlay").css("background", "rgba(0, 0, 0, 0.7)");
+	$("#game-overlay").css("background", "rgba(0, 0, 0, 0.4)");
 	$("#game-centre div").fadeOut();
 	$("#game-overlay").fadeIn();
 }

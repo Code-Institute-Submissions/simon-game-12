@@ -9,11 +9,17 @@ Main Game content
 	#game-centre #round-number {
 		font-size: 4rem;
 	}
+	#settings .align-self-center {
+		min-width: 300px;
+	}
 }
 
 @media (min-width: 768px) {
 	.fa-3x {
 		font-size: 5rem;
+	}	
+	#settings .align-self-center {
+		min-width: 450px;
 	}
 }
 

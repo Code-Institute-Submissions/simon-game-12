@@ -22,7 +22,7 @@ function game_menu() {
 					<i class="fas fa-chart-area fa-3x"></i>
 				</div>
 			</div>
-			<div id="settings" class="col-6 d-flex justify-content-center">
+			<div id="settings-menu" class="col-6 d-flex justify-content-center">
 				<div class="pb-5 align-self-end">	
 					<i class="fas fa-cogs fa-3x"></i>
 				</div>
@@ -97,10 +97,6 @@ function new_game_template() {
 					<option value="medium">Medium (15)</option>
 					<option value="hard">Hard (20)</option>
 				</select>
-			</div>
-			<div class="form-group form-check">
-				<input type="checkbox" class="form-check-input" id="sounds" checked>
-				<label class="form-check-label pt-3 pl-4 text-light" for="sounds">Sounds on</label>
 			</div>
 			<div class="form-group">
 				<button onclick="return create_game()" class="btn btn-outline-success btn-lg btn-block" type="submit">Play</button>
@@ -236,7 +232,7 @@ function no_statistics() {
 						<i class="fas fa-times fa-4x"></i>
 					</button>							
 				</div>
-				<h3 class="text-center">You did not finish a game yet!</h3>	
+				<h3 class="text-center">You did not finish <br> game yet!</h3>
 				<hr class="box-shadow-green">
 				<div class="row justify-content-center">
 					<h4 class="text-center"> Play one now? </h4>
@@ -248,9 +244,9 @@ function no_statistics() {
 				</div>
 			</div>
 		</div>
-	`)
-	simon_layout()
-	$("#game-overlay").fadeIn(500)
+	`);
+	simon_layout();
+	$("#game-overlay").fadeIn(500);
 }
 
 /* 

@@ -28,9 +28,7 @@ Construct a game save
 function SimonSave(params) {
 	this.id = params.id;
 	this.name = params.name;
-	this.difficulty = parse_difficulty(params.difficulty);
-	this.sound_on = params.sound_on;
-	this.random = "off";
+	this.difficulty = parse_difficulty(params.difficulty);	
 	this.org_sequence = [random_ele()];
 	this.round = 1;
 	this.correct = 0;
@@ -123,6 +121,64 @@ function update_profile(index, data) {
 	profiles[index] = data;
 	save_data(profiles)
 }
+
+
+/* 
+Add Game setting by default
+*/
+
+function create_game_setting() {
+	if (!get_setting()) {
+		clear_ls();
+		const simon_setting = new CreateGameSetting();
+		save_setting(simon_setting);
+	} else {
+		if (!get_setting().sound_on) {
+			$("#sound-setting i").removeClass("text-shadow-green").addClass("text-shadow-red");
+			$("#sound-setting p:nth-child(2)").html("Sounds off !");
+
+		} else {
+			$("#sound-setting i").removeClass("text-shadow-red").addClass("text-shadow-green");
+			$("#sound-setting p:nth-child(2)").html("Sounds on");
+		}
+		if (!get_setting().random) {
+			$("#sequence-setting i").removeClass("text-shadow-green").addClass("text-shadow-red");
+			$("#sequence-setting p:nth-child(2)").html("All random off");
+		} else {
+			$("#sequence-setting i").removeClass("text-shadow-red").addClass("text-shadow-green");
+			$("#sequence-setting p:nth-child(2)").html("All random on !");
+		}
+	}	
+}
+
+/* 
+Construct Game Setting
+*/
+
+function CreateGameSetting() {
+	this.sound_on = true;
+	this.random = false;
+	this.theme = "modern";
+}
+
+/* 
+Get game setting from localStorage
+*/
+
+function get_setting() {
+	const get_simon_setting = localStorage.getItem("simon_setting");
+	const simon_setting = JSON.parse(get_simon_setting);
+	return simon_setting;
+}
+
+/* 
+Save setting
+*/
+
+function save_setting(simon_setting) {
+	localStorage.setItem("simon_setting", JSON.stringify(simon_setting));
+}
+
 
 /* 
 Clear localStorage

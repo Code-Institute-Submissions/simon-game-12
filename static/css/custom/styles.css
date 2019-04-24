@@ -122,6 +122,7 @@ main {
 
 #game-container,
 #game-centre,
+#game-settings-overlay,
 #game-overlay,
 #game-menu {
 	max-height: 600px;
@@ -133,6 +134,7 @@ main {
 #game-centre,
 #game-overlay,
 #game-menu,
+#game-settings-overlay,
 #game-col-0,
 #game-col-1,
 #game-col-2,
@@ -195,6 +197,7 @@ Game Overlay and Game Menu
 */
 
 #game-overlay,
+#game-settings-overlay,
 #game-menu {
 	position: absolute;
 	z-index: 2;
@@ -203,14 +206,16 @@ Game Overlay and Game Menu
 }
 
 #game-overlay,
+#game-settings-overlay,
 #load-game,
 #statistics-modal,
-#statistics-modal  {
+.fa-volume-mute  {
 	display: none;
 	z-index: 4;
 }
 
 #game-overlay,
+#game-settings-overlay,
 #game-menu,
 #load-game,
 #statistics-modal  {
@@ -220,6 +225,7 @@ Game Overlay and Game Menu
 #game-overlay i:hover,
 #game-menu .col-6:hover i,
 #game-centre button:hover i,
+#settings .col:hover i,
 .wrapper .fa-gamepad:hover,
 .wrapper .fa-trash-alt:hover {
 	transform: scale(1.3);
