@@ -126,7 +126,7 @@ function load_game(id) {
 	let profile = get_profile(id);
 	if (profile) {
 		$("#profile-id").html(profile.id);
-		$.when(hide_overlay('#load-game'), hide_menu()).then(game_round(profile));
+		$.when(hide_overlay('#load-game'), hide_menu()).then(round_number(profile), game_round(profile));
 	} else {
 		js_alerts("danger", "Unable to load profile!");
 		return false
@@ -138,7 +138,7 @@ Show statistics for existing profiles
 */
 
 function statistics() {
-	flash_play(1)
+	flash_play(2)
 	$("#game-centre div").fadeOut(1000);
 	let data = load_data()
 	if (load_data()) {
@@ -152,10 +152,10 @@ function statistics() {
 			}, 700)
 
 		} else {
-			return no_profiles();
+			return no_statistics();
 		}
 	} else {
-		return no_profiles();
+		return no_statistics();
 	}
 }
 
@@ -294,15 +294,34 @@ function check_game_end(profile_index, profile) {
 	} else {
 		difficulty = 20
 	}
-	if (difficulty === profile.round) {		
-		$("#game-overlay").empty().fadeIn();
-		$("#game-overlay").css("background", "transparent");
-		$("#game-overlay").fadeIn();
+	if (difficulty === profile.round) {	
+		remove_click_events();	
+		$("#game-overlay").css("background", "rgba(0, 0, 0, 0.4)");
+		$("#game-overlay").empty().fadeIn();		
 		profile.correct += 1;
 		profile.finished_game = true;
 		update_profile(profile_index, profile);
+		show_score(profile);
 		return true;
 	} 
+}
+
+/* 
+Show score screen to user 
+*/
+
+function show_score(profile) {
+	calculate_score(profile);
+}
+
+// Calculate score
+
+function calculate_score(profile) {
+	var score = profile.correct - profile.wrong;
+	if (score <= 0) {
+		score = 0;
+	}
+	return score;
 }
 
 /* 

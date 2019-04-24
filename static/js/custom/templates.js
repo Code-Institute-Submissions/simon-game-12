@@ -60,8 +60,7 @@ function round_number(profile) {
 		<div class="align-self-center">
 			<h2 id="round-number">${profile.round}</h2>
 		</div>
-	`)
-		.fadeIn(500);
+	`).fadeIn(500);
 	return false
 }
 
@@ -110,6 +109,10 @@ function new_game_template() {
 	</form>
 	`
 }
+
+/* 
+No profile found 
+*/
 
 function no_profiles() {
 	$("#game-overlay").html(`
@@ -176,10 +179,40 @@ function profiles_template(profiles) {
 					<td>${profiles[i].name}</td>
 					<td>${profiles[i].round} / ${difficulty}</td>
 					<td>
-						<button onclick="load_game(${[i]})" class="btn bg-transparent" type="button"><i class="fas fa-gamepad fa-2x"></i></button>
+						<button onclick="load_game(${profiles[i].id})" class="btn bg-transparent" type="button"><i class="fas fa-gamepad fa-2x"></i></button>
 					</td>
 				</tr>
 			</tbody>
 		`)		
 	}
+}
+
+/* 
+No statistics found
+*/
+
+function no_statistics() {
+	$("#game-overlay").html(`
+		<div class="wrapper row justify-content-center">
+			<div class="align-self-center">
+				<div class="row justify-content-end">
+					<button onclick="return hide_overlay('#game-overlay')" class="btn bg-transparent">
+						<i class="fas fa-times fa-4x"></i>
+					</button>							
+				</div>
+				<h3 class="text-center">You did not finish a game yet!</h3>	
+				<hr>
+				<div class="row justify-content-center">
+					<h4 class="text-center"> Play one now? </h4>
+				</div>
+				<div class="row justify-content-center">
+					<div class="pt-3">	
+						<button onclick="return new_game()" class="btn bg-transparent"><i class="fas fa-gamepad fa-3x"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	`)
+	simon_layout()
+	$("#game-overlay").fadeIn(500)
 }

@@ -26,7 +26,7 @@ function random_sequence() {
 
 function test_data() {
 	let save = {
-		"correct": 0,
+		"correct": 2,
 		"difficulty": "test",
 		"finished_game": false,
 		"id": 0,
@@ -37,9 +37,10 @@ function test_data() {
 		"sequence": [0],
 		"sound_on": "on",
 		"start_date": "2019-04-24T04:23:49.645Z",
-		"wrong": 0,
+		"wrong": 1,
 	}
 	save_data([save]);
+	//calculate_score(save)
 	load_game(0);
 }
 

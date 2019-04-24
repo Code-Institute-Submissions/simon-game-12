@@ -250,6 +250,8 @@ The project has been tested on commonly used devices and browsers such as:
     - added functionality for user to be able to load a game in progress and continue where he finished
     - added fundamentals for Statistics menu
 - **Fixes**
+  - [templates.js](/static/js/custom/teplates.js)
+    - fixed issue with incorect injectiing profile id in `profiles_template()` template
 
 [**To top**](#Table-of-Contents)
 
