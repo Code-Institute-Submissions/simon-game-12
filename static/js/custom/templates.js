@@ -44,11 +44,6 @@ function game_centre_h2() {
 				<b>SIMON </b><i class="fab fa-js-square fa-2x"></i>		
 			</h2>
 			<hr class="box-shadow-green my-2">
-			<div class="text-center">
-				<button class="btn bg-transparent">
-					<i class="fas fa-question fa-2x"></i>
-				</button>
-			</div>
 		</div>
 	`)
 		.fadeIn(500);

@@ -196,10 +196,10 @@ The project has been tested on commonly used devices and browsers such as:
 
 *[Git](https://git-scm.com/) has been used for version control.*
 
-- There are 12 different branches:
+- There are 13 different branches:
 
   - [master branch](https://github.com/MiroslavSvec/simon-game/tree/master) Used in production.
-  - *11 other branches has been created for development purpose only. Where each branch represent different version of the application.*
+  - *12 other branches has been created for development purpose only. Where each branch represent different version of the application.*
 
 ### 0.0
 
