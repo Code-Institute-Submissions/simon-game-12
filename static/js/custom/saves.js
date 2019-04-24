@@ -28,7 +28,7 @@ Construct a game save
 function SimonSave(params) {
 	this.id = params.id;
 	this.name = params.name;
-	this.difficulty = params.difficulty;
+	this.difficulty = parse_difficulty(params.difficulty);
 	this.sound_on = params.sound_on;
 	this.random = "off";
 	this.org_sequence = [random_ele()];
@@ -37,6 +37,22 @@ function SimonSave(params) {
 	this.wrong = 0;
 	this.finished_game = false;
 	this.start_date = new Date();
+}
+
+/* 
+Return difficulty base on user input
+*/
+
+function parse_difficulty(difficulty) {
+	if (difficulty == "normal") {
+		return 10
+	} else if (difficulty == "medium") {
+		return 15
+	} else if (difficulty == "test") {
+		return 1
+	} else {
+		return 20
+	}
 }
 
 /* 

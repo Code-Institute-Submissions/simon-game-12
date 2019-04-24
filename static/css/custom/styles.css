@@ -26,7 +26,7 @@ General
 	--red-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
 		#d33131 0px 0px 20px, #d33131 0px 0px 30px, #d33131 0px 0px 40px,
 		#d33131 0px 0px 50px, #d33131 0px 0px 75px;
-	--yelow-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+	--yellow-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
 		#f7bf18 0px 0px 20px, #f7bf18 0px 0px 30px, #f7bf18 0px 0px 40px,
 		#f7bf18 0px 0px 50px, #f7bf18 0px 0px 75px;
 	--blue-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
@@ -38,6 +38,18 @@ General
 	--menu-shadow:#13181d 0px 0px 5px, #13181d 0px 0px 10px, #fff 0px 0px 15px,
 		#13181d 0px 0px 20px, #13181d 0px 0px 30px, #13181d 0px 0px 40px,
 		#13181d 0px 0px 50px, #13181d 0px 0px 75px;
+}
+
+.text-shadow-green {
+	text-shadow: var(--green-shadow)
+}
+
+.text-shadow-red {
+	text-shadow: var(--red-shadow)
+}
+
+.text-shadow-yellow {
+	text-shadow: var(--yellow-shadow)
 }
 
 body {
@@ -196,6 +208,7 @@ Game Overlay and Game Menu
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
+#game-overlay i:hover,
 #game-menu .col-6:hover i,
 #game-centre button:hover i,
 .wrapper .fa-gamepad:hover,
@@ -233,7 +246,7 @@ input[type=checkbox] {
 }
 
 .fa-chart-area {
-	text-shadow: var(--yelow-shadow);
+	text-shadow: var(--yellow-shadow);
 }
 
 

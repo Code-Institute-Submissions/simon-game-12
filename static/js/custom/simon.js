@@ -8,7 +8,7 @@ function simon_layout() {
 	$("#game-menu").height(container_width).width(container_width);
 	$("#game-overlay").height(container_width).width(container_width);
 	$("#game-container .col-6").height(container_width / 2);
-	$(".wrapper").height(container_width);	
+	$("#game-overlay>.row").height(container_width);	
 
 	$("#game-centre")
 		.height(container_width / 2)
@@ -34,7 +34,7 @@ function new_game() {
 			if (display == "none") {
 				let message = "The game can get much harder with sounds off!"
 				if ($(".alert p").text() != message) {
-					js_alerts("danger", message)
+					js_alerts("text-shadow-red", message)
 				}				
 			}
 			
@@ -55,13 +55,13 @@ function create_game() {
 	if (name[0].length <= 3) {
 		let message = "Profile name must be longer then 3 characters!"
 		if ($(".alert p").text() != message) {
-			js_alerts("danger", message)
+			js_alerts("text-shadow-red", message)
 		}
 		return false
 	} else if (difficulty == "difficulty") {
 		let message = "Please choose difficulty of the game!"
 		if ($(".alert p").text() != message) {
-			js_alerts("danger", message)
+			js_alerts("text-shadow-red", message)
 		}
 		return false
 	} else {
@@ -77,7 +77,7 @@ function create_game() {
 			//Start game
 			start_game(profile)
 		} else {
-			js_alerts("danger", "Unable to save profile!")
+			js_alerts("text-shadow-red", "Unable to save profile!")
 			load_data()
 			return false
 		}
@@ -126,9 +126,9 @@ function load_game(id) {
 	let profile = get_profile(id);
 	if (profile) {
 		$("#profile-id").html(profile.id);
-		$.when(hide_overlay('#load-game'), hide_menu()).then(round_number(profile), game_round(profile));
+		$.when(hide_menu(), hide_overlay('#load-game')).then(game_round(profile));
 	} else {
-		js_alerts("danger", "Unable to load profile!");
+		js_alerts("text-shadow-red", "Unable to load profile!");
 		return false
 	}
 }
@@ -205,7 +205,10 @@ function game_round(game_save) {
 			add_click_events();
 			hide_menu();
 		}, delay);
-		return game_save
+
+		console.log(game_save.sequence)
+		console.log(game_save.correct)
+		return game_save;
 	}, 1500);	
 }
 
@@ -243,10 +246,10 @@ function check_answer(btn_id) {
 		if (profile.sequence[0] == btn_id) {
 			if (profile.sequence.length === 1) {
 				$("#game-overlay").empty().fadeIn();
+				profile.correct += 1;
 			}
 			profile.sequence.shift()
-			if (profile.sequence.length === 0) {
-				
+			if (profile.sequence.length === 0) {				
 				if (!check_game_end(profile_index, profile)) {
 					profile.round += 1;
 					create_sequence(profile_index, profile);
@@ -256,8 +259,7 @@ function check_answer(btn_id) {
 				}	else {
 					return 
 				}			
-			}
-			profile.correct += 1		
+			}	
 			update_profile(profile_index, profile)
 		// IF user answer is incorrect	
 		} else {
@@ -273,7 +275,7 @@ function check_answer(btn_id) {
 			update_profile(profile_index, profile)
 		}
 	} else {
-		js_alerts("danger", "Unable to load profile!")
+		js_alerts("text-shadow-red", "Unable to load profile!")
 		load_data();
 		return false
 	} 
@@ -284,24 +286,11 @@ End the game
 */
 
 function check_game_end(profile_index, profile) {
-	let difficulty = 0
-	if (profile.difficulty === "normal") {
-		difficulty = 10
-	} else if (profile.difficulty === "medium") {
-		difficulty = 15
-	} else if (profile.difficulty === "test") {
-		difficulty = 1
-	} else {
-		difficulty = 20
-	}
-	if (difficulty === profile.round) {	
-		remove_click_events();	
-		$("#game-overlay").css("background", "rgba(0, 0, 0, 0.4)");
-		$("#game-overlay").empty().fadeIn();		
-		profile.correct += 1;
+	if (profile.difficulty === profile.round) {	
+		remove_click_events();
 		profile.finished_game = true;
 		update_profile(profile_index, profile);
-		show_score(profile);
+		show_score(profile);			
 		return true;
 	} 
 }
@@ -311,7 +300,11 @@ Show score screen to user
 */
 
 function show_score(profile) {
-	calculate_score(profile);
+	$("#game-centre div").fadeOut();
+	$("#game-overlay").css("background", "rgba(0, 0, 0, 0.4)");
+	$("#game-overlay").fadeIn();
+	$("#game-menu").fadeIn();
+	return game_end_template(profile);
 }
 
 // Calculate score

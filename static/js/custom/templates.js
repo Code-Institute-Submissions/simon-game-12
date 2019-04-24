@@ -162,22 +162,12 @@ function profiles_template(profiles) {
 			</div>
 		</div>
 	`);
-	let difficulty = 0
 	for (let i = 0; i < profiles.length; i++) {
-		if (profiles[i].difficulty == "normal") {
-			difficulty = 10
-		} else if (profiles[i].difficulty == "medium") {
-			difficulty = 15
-		} else if (profiles[i].difficulty == "test") {
-			difficulty = 1
-		} else {
-			difficulty = 20
-		}
 		$("#profiles .table").append(`
 			<tbody>
 				<tr>
 					<td>${profiles[i].name}</td>
-					<td>${profiles[i].round} / ${difficulty}</td>
+					<td>${profiles[i].round} / ${profiles[i].difficulty}</td>
 					<td>
 						<button onclick="load_game(${profiles[i].id})" class="btn bg-transparent" type="button"><i class="fas fa-gamepad fa-2x"></i></button>
 					</td>
@@ -208,6 +198,72 @@ function no_statistics() {
 				<div class="row justify-content-center">
 					<div class="pt-3">	
 						<button onclick="return new_game()" class="btn bg-transparent"><i class="fas fa-gamepad fa-3x"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	`)
+	simon_layout()
+	$("#game-overlay").fadeIn(500)
+}
+
+/* 
+Game end 
+*/
+
+function game_end_template(profile) {
+	let difficulty = profile.difficulty;
+	let difficulty_name = function() {
+		if (difficulty == 10) {
+			return ["text-shadow-green", "Normal"]
+		} else if (difficulty == 15) {
+			return ["text-shadow-yellow", "Medium"]
+		} else if (difficulty == 1) {
+			return "Test"
+		} else {
+			text_shadow = "text-shadow-red"
+			return ["text-shadow-red", "Hard"]
+		}
+	};	
+	var score_text_shadow = "text-shadow-green";
+	let score = calculate_score(profile);
+	var message = ""
+	if (score == difficulty) {
+		message = `which is amazing <i class="far fa-grin-hearts text-success"></i>`
+	}
+	else if (score > parseInt(difficulty / 2)) {
+		message = `Which is Great <i class="far fa-smile-beam text-success"></i>`;
+	} else if (score == parseInt(difficulty / 2)) {
+		message =  `Which is Good <i class="far fa-smile-beam text-success"></i>`;
+	} else if (score > parseInt(difficulty / 2 / 2)) {
+		score_text_shadow = "text-shadow-yellow";
+		message = `Which is So so <i class="far fa-grin text-warning"></i>`;
+
+	} else {
+		score_text_shadow = "text-shadow-red";
+		message =  `Which is BAD <i class="fas fa-poo fa-lg text-danger"></i>`;
+	}
+	$("#game-overlay").html(`
+		<div class="row justify-content-center">
+			<div class="align-self-center">
+				<div class="row justify-content-center">				
+					<div class="col-12">
+						<h2 class="text-shadow-green">Congratulations!</h2>
+						<hr>
+						<p class="lead py-2 text-light">You just finished the the game on <br>
+							<span class="${difficulty_name()[0]}">${difficulty_name()[1]}</span> <br>
+							with score of <span class="${score_text_shadow}">${score}</span> 
+						</p> 
+						<p class="lead text-light ${score_text_shadow}">${message}</p> 
+					</div>	
+				</div>
+				<hr>
+				<div class="row justify-content-center">
+					<div class="pt-2">	
+						<button onclick="return statistics()" class="btn bg-transparent"><i class="fas fa-chart-area fa-2x"></i></button>
+					</div>
+					<div class="pt-2">	
+						<button onclick="return new_game()" class="btn bg-transparent"><i class="fas fa-gamepad fa-2x"></i></button>
 					</div>
 				</div>
 			</div>

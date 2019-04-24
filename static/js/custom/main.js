@@ -69,7 +69,7 @@ Alerts
 // JS alerts
 function js_alerts(css_class, message) {
 	$(".alert").html(`
-		<p class="text-${css_class} lead font-weight-bold">${message}</p>
+		<p class="${css_class} text-light lead">${message}</p>
 	`);
 	$("#js-alerts").slideDown(1000);
 	setTimeout(() => {
@@ -84,8 +84,9 @@ Close #game-overlay
 function hide_overlay(overlay) {
 	play_audio("incorrect")
 	$(overlay).fadeOut(500);	
+	$("#game-overlay").fadeOut();	
 	setTimeout(() => {		
-		$("main .container-fluid").fadeIn(500);
+		$("main .container-fluid").fadeIn(500);		
 		game_centre_h2();
 		simon_layout();
 	}, 700);

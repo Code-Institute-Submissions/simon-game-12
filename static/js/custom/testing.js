@@ -26,8 +26,8 @@ function random_sequence() {
 
 function test_data() {
 	let save = {
-		"correct": 2,
-		"difficulty": "test",
+		"correct": 10,
+		"difficulty": 20,
 		"finished_game": false,
 		"id": 0,
 		"name": "Miro",
@@ -37,11 +37,17 @@ function test_data() {
 		"sequence": [0],
 		"sound_on": "on",
 		"start_date": "2019-04-24T04:23:49.645Z",
-		"wrong": 1,
+		"wrong": 0,
 	}
 	save_data([save]);
-	//calculate_score(save)
-	load_game(0);
+	game_end_template(save)
+	//load_game(0);
+}
+
+function game_overlay() {
+	$("#game-overlay").css("background", "rgba(0, 0, 0, 0.7)");
+	$("#game-centre div").fadeOut();
+	$("#game-overlay").fadeIn();
 }
 
 /* 

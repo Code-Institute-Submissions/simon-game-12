@@ -252,6 +252,7 @@ The project has been tested on commonly used devices and browsers such as:
 - **Fixes**
   - [templates.js](/static/js/custom/teplates.js)
     - fixed issue with incorect injectiing profile id in `profiles_template()` template
+    - added `game_end_template()`
 
 [**To top**](#Table-of-Contents)
 
