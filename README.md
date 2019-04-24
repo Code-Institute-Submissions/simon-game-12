@@ -27,7 +27,6 @@
 		- [0.9](#09)
 		- [1.0](#10)
 	- [**Deployment**](#deployment)
-	- [What could be done better?](#what-could-be-done-better)
 	- [**Credits**](#credits)
 
 <hr />
@@ -114,23 +113,26 @@ HTML / CSS | 5
 ### Features left to implement
 
 - limited tries
+  - wanted to add limited tries depends on the dificulty
 - statistics
   - add more colors to statistisc modal depends on the score. Also `sort()` the results by the score
 - different themes
-- when loading the game the sequence is played again and this can be used to cheat the game. However, I did not want skip this as after a while user will probably forget the sequence I left it like that.
+  - old style design will be added in future
+- when loading the game the sequence is played again and this can be used to cheat the game. 
+  - However, I did not want skip this as after a while user will probably forget the sequence anjd therefore I left it like that.
 - limit sequence replays
-  - did not add it as you can play the sequence when game is loaded so it can be cheated anyway
+  - did not add it as user can play the sequence when game is loaded so it can be cheated anyway
 - game settings should not be global and I should hook the setting to each individual profile. This way the user can get scored based on the setting
 
 ### What could be done better
 
 - error hadling
   - right none minimum to none. Also not enough feedback to user if something goes wrong
-- the whole JS was tested manualy. More automated tests
+- the whole JS was tested manualytherefore more automated tests
 - score system is very basic
 - load game should show (as soon as implemented) what setting the user plays on
-- README.md
-  - unfortunately the README could be writen in more details
+- `README.md`
+  - unfortunately the README could be writen in more details due to the time left for the project
 
 
 [**To top**](#Table-of-Contents)
@@ -167,9 +169,24 @@ The project has been tested on commonly used devices and browsers such as:
     - Document checking completed. No errors or warnings to show.
 
   - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) (All pages)
-    - Something
+    - **Sorry! We found the following errors (52)**
+    - **Warnings (981)**  
+    *Both due to the Bootstrap 4*  
+    *There are no errors in custom CSS*  
   - [JSHint](https://jshint.com/) (Report of all custom JS functions)
-    - Something
+    - **There are 81 functions in this file**
+      - Function with the largest signature take 2 arguments, while the median is 0.
+      - Largest function has 28 statements in it, while the median is 3.
+      - The most complex function has a cyclomatic complexity value of 7 while the median is 1.
+    - **Seven unused variables**  
+    *As the functions are called from templates* 
+      - random_sequence
+      - test_data
+      - game_overlay
+      - no_feature
+      - delete_profile
+      - create_game
+      - game_menu
 
 [**To top**](#Table-of-Contents)
 
@@ -179,10 +196,10 @@ The project has been tested on commonly used devices and browsers such as:
 
 *[Git](https://git-scm.com/) has been used for version control.*
 
-- There are XXXXXXXXXXXX different branches:
+- There are 12 different branches:
 
   - [master branch](https://github.com/MiroslavSvec/simon-game/tree/master) Used in production.
-  - *XXXXXXXXXXXXX other branches has been created for development purpose only. Where each branch represent different version of the application.*
+  - *11 other branches has been created for development purpose only. Where each branch represent different version of the application.*
 
 ### 0.0
 
@@ -290,6 +307,7 @@ The project has been tested on commonly used devices and browsers such as:
 
 - **Changelog**
   - added functionality for user to be able to delete a profile
+  - validate HTML, CSS and JS
 
 [**To top**](#Table-of-Contents)
 
@@ -303,10 +321,6 @@ The project has been deployed to GitHub Pages  - [Simon Game](https://miroslavsv
 
 <hr />
 
-## What could be done better?
-
-- Something
-
 [**To top**](#Table-of-Contents)
 
 <hr />
@@ -315,8 +329,11 @@ The project has been deployed to GitHub Pages  - [Simon Game](https://miroslavsv
 
 **Special thanks to:**
 
+- **Sipo**
+  - for creating the sounds for me :)
+
 - everyone for finding few minutes to test the project!  
 
   All of you gave me constructive feedback which made the project better 😊
 
-[**To top**](#Table-of-Contents)A
+[**To top**](#Table-of-Contents)
